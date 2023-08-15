@@ -1,0 +1,12 @@
+:root{
+    --elementSize: 3rem
+}
+
+.element {
+  width: var(--elementSize);
+  height: var(--elementSize);
+  background-color: rgba(128, 128, 128, 0.425);
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  box-shadow: 5px 5px 3px rgba(128, 128, 128, 0.486);
+}
