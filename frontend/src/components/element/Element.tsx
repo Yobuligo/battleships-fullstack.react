@@ -1,4 +1,5 @@
 import { CSSProperties, useContext, useState } from "react";
+import { ElementRepository } from "../../api/ElementRepository";
 import { AppContext } from "../../context/AppContext";
 import styles from "./Element.module.css";
 import { IElementProps } from "./IElementProps";
@@ -17,7 +18,14 @@ export const Element: React.FC<IElementProps> = (props) => {
     <div
       className={styles.element}
       style={styleExtension}
-      onClick={() => setHighlight(true)}
+      onClick={() => {
+        setHighlight(true);
+        ElementRepository.add({
+          color: context.color,
+          posX: props.posX,
+          posY: props.posY,
+        });
+      }}
     ></div>
   );
 };
