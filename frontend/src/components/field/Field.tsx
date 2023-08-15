@@ -6,8 +6,10 @@ import { IFieldProps } from "./IFieldProps";
 export const Field: React.FC<IFieldProps> = (props) => {
   const items = () => {
     const items: ReactNode[] = [];
-    repeat(props.numberElementsY, () => {
-      items.push(<ElementRow numberElementsX={props.numberElementsX} />);
+    repeat(props.numberElementsY, (index) => {
+      items.push(
+        <ElementRow numberElementsX={props.numberElementsX} posY={index} />
+      );
     });
     return items;
   };
