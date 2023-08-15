@@ -6,9 +6,9 @@ export const useTranslation = () => {
   const language = useLanguage();
   switch (language) {
     case LanguageType.DE: {
-      return translations["de"];
+      return { t: translations["de"] };
     }
     default:
-      return translations["en"];
+      return { t: translations["en"] };
   }
 };
