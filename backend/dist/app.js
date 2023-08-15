@@ -9,7 +9,13 @@ const Controller_1 = require("./controllers/Controller");
 const Repository_1 = require("./repositories/Repository");
 const IUser_1 = require("./shared/model/IUser");
 const server = (0, express_1.default)();
+server.use((_, res, next) => {
+    res.setHeader("access-control-allow-origin", "*");
+    res.setHeader("access-control-allow-methods", "GET, POST, DELETE, PATCH, PUT");
+    res.setHeader("access-control-allow-headers", "Content-Type");
+    next();
+});
 server.use(body_parser_1.default.json());
-server.use(new Controller_1.Controller(IUser_1.UserMeta.path, new Repository_1.Repository(IUser_1.UserMeta.path)).router);
+server.use(new Controller_1.Controller(IUser_1.UserMeta.path, new Repository_1.Repository()).router);
 server.listen(5000);
 //# sourceMappingURL=app.js.map

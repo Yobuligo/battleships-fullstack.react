@@ -3,8 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Repository = void 0;
 const IdGenerator_1 = require("../services/IdGenerator");
 class Repository {
-    constructor(path) {
-        this.path = path;
+    constructor() {
         this.data = [];
     }
     add(entity) {

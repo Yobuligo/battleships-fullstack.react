@@ -6,8 +6,6 @@ import { IRepository } from "../shared/types/IRepository";
 export class Repository<T extends IEntity> implements IRepository<T> {
   private data: T[] = [];
 
-  constructor(private readonly path: string) {}
-
   add(entity: IEntityDetails<T>): Promise<T> {
     return new Promise((resolve) => {
       const newEntity: T = { id: IdGenerator.next(), ...entity } as T;
