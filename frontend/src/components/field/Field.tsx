@@ -8,7 +8,11 @@ export const Field: React.FC<IFieldProps> = (props) => {
     const items: ReactNode[] = [];
     repeat(props.numberElementsY, (index) => {
       items.push(
-        <ElementRow numberElementsX={props.numberElementsX} posY={index} />
+        <ElementRow
+          key={index}
+          numberElementsX={props.numberElementsX}
+          posY={index}
+        />
       );
     });
     return items;

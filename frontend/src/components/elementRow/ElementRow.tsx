@@ -8,7 +8,7 @@ export const ElementRow: React.FC<IElementRowProps> = (props) => {
   const items = () => {
     const items: ReactNode[] = [];
     repeat(props.numberElementsX, (index) => {
-      items.push(<Element posX={index} posY={props.posY} />);
+      items.push(<Element key={index} posX={index} posY={props.posY} />);
     });
     return items;
   };
