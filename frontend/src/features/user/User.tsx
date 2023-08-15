@@ -1,14 +1,13 @@
+import { LabeledInput } from "../../components/labeledInput/LabeledInput";
+import { useTranslation } from "../../hooks/useTranslation";
+
 export const User: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <div>
-        <div>
-          <label htmlFor="username">Username</label>
-        </div>
-        <div>
-          <input type="text" />
-        </div>
-      </div>
+      <LabeledInput label={t.username} />
+      <LabeledInput label={t.color} type="color" />
     </>
   );
 };
