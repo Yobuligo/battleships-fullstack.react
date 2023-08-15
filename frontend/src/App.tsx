@@ -1,10 +1,10 @@
 import "./App.css";
-import { Field } from "./components/field/Field";
+import { MainPage } from "./pages/MainPage";
 
 function App() {
   return (
     <>
-      <Field numberElementsX={10} numberElementsY={10} />
+      <MainPage />
     </>
   );
 }
