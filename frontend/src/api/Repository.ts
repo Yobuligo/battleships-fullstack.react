@@ -12,7 +12,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
         method: "POST",
         body: JSON.stringify(entity),
         headers: {
-          "Content-Type": "application/JSON",
+          "Content-Type": "application/json",
         },
       });
       const data = await response.json();
@@ -35,6 +35,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
     return new Promise(async (resolve) => {
       const response = await fetch(this.url, {
         mode: "cors",
+        headers: { "Content-Type": "application/json" },
       });
       const data = await response.json();
       resolve(data);

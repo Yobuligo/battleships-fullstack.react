@@ -2,12 +2,14 @@ import { IdGenerator } from "../services/IdGenerator";
 import { IEntity } from "../shared/types/IEntity";
 import { IEntityDetails } from "../shared/types/IEntityDetails";
 import { IRepository } from "../shared/types/IRepository";
+import { print } from "../shared/utils/print";
 
 export class Repository<T extends IEntity> implements IRepository<T> {
   private data: T[] = [];
 
   add(entity: IEntityDetails<T>): Promise<T> {
     return new Promise((resolve) => {
+      print(entity, "Entity was added");
       const newEntity: T = { id: IdGenerator.next(), ...entity } as T;
       this.data.push(newEntity);
       resolve(newEntity);

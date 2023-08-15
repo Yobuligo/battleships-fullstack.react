@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Repository = void 0;
 const IdGenerator_1 = require("../services/IdGenerator");
+const print_1 = require("../shared/utils/print");
 class Repository {
     constructor() {
         this.data = [];
     }
     add(entity) {
         return new Promise((resolve) => {
+            (0, print_1.print)(entity, "Entity was added");
             const newEntity = Object.assign({ id: IdGenerator_1.IdGenerator.next() }, entity);
             this.data.push(newEntity);
             resolve(newEntity);
