@@ -13,8 +13,8 @@ export const User: React.FC = () => {
       <LabeledInput
         label={t.color}
         type="color"
-        initialValue={context.color}
-        onChange={(color) => context.setColor(color)}
+        initialValue={context.userColor}
+        onChange={(color) => context.setUserColor(color)}
       />
     </>
   );

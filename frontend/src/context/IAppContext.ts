@@ -1,10 +1,10 @@
 import { IElement } from "../shared/model/IElement";
-import { IGridData } from "../types/IGridData";
+import { IGrid } from "../types/IGrid";
 
 export interface IAppContext {
-  color: string;
-  setColor: (color: string) => void;
+  userColor: string;
+  setUserColor: (color: string) => void;
   elements: IElement[];
   setElements: (elements: IElement[]) => void;
-  grid: IGridData;
+  grid: IGrid;
 }

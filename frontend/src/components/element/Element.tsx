@@ -10,7 +10,7 @@ export const Element: React.FC<IElementProps> = (props) => {
 
   const styleExtension = {
     "--backgroundColor": highlight
-      ? context.color
+      ? context.userColor
       : "rgba(128, 128, 128, 0.425)",
   } as CSSProperties;
 
@@ -21,7 +21,7 @@ export const Element: React.FC<IElementProps> = (props) => {
       onClick={() => {
         setHighlight(true);
         ElementRepository.add({
-          color: context.color,
+          color: context.userColor,
           posX: props.posX,
           posY: props.posY,
         });
