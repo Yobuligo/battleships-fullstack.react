@@ -12,7 +12,7 @@ export const useGrid = (
   const context = useContext(AppContext);
   const [data, setData] = useState<IGridData>([]);
 
-  const initializeData = useCallback((): IGridData => {
+  const initializeGridData = useCallback((): IGridData => {
     const grid: IGridData = [];
     for (let y = 0; y < numberElementsY; y++) {
       const row: IGridRowData = [];
@@ -28,10 +28,24 @@ export const useGrid = (
     return data[posX][posY];
   };
 
-  useEffect(() => {
-    const data = initializeData();
-    setData(data);
-  }, [initializeData]);
+  const updateAt = (posX: number, posY: number, color: string) => {
+    setData((previous) => {
+      const element = previous[posX][posY];
+      if (!element) {
+        throw new Error(
+          `Error when updating grid cell at (${posX},${posY}). Element at position not found.`
+        );
+      }
 
-  return { findAt };
+      element.color = color;
+      return previous;
+    });
+  };
+
+  useEffect(() => {
+    const data = initializeGridData();
+    setData(data);
+  }, [initializeGridData]);
+
+  return { findAt, updateAt };
 };

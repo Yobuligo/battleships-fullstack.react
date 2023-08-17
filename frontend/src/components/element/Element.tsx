@@ -1,4 +1,4 @@
-import { CSSProperties, useContext, useState } from "react";
+import { CSSProperties, useContext } from "react";
 import { ElementRepository } from "../../api/ElementRepository";
 import { AppContext } from "../../context/AppContext";
 import styles from "./Element.module.css";
@@ -6,12 +6,9 @@ import { IElementProps } from "./IElementProps";
 
 export const Element: React.FC<IElementProps> = (props) => {
   const context = useContext(AppContext);
-  const [highlight, setHighlight] = useState(false);
 
   const styleExtension = {
-    "--backgroundColor": highlight
-      ? context.userColor
-      : "rgba(128, 128, 128, 0.425)",
+    "--backgroundColor": context.grid.findAt(props.posX, props.posY)?.color,
   } as CSSProperties;
 
   return (
@@ -19,7 +16,7 @@ export const Element: React.FC<IElementProps> = (props) => {
       className={styles.element}
       style={styleExtension}
       onClick={() => {
-        setHighlight(true);
+        context.grid.updateAt(props.posX, props.posY, context.userColor);
         ElementRepository.add({
           color: context.userColor,
           posX: props.posX,

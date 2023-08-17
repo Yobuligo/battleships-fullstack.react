@@ -8,6 +8,8 @@ import { IElement } from "./shared/model/IElement";
 import { request } from "./utils/request";
 
 function App() {
+  const numberElementsX = 10;
+  const numberElementsY = 10;
   const [userColor, setUserColor] = useState("#FF0000");
   const [elements, setElements] = useState<IElement[]>([]);
 
@@ -25,10 +27,13 @@ function App() {
         setUserColor,
         elements,
         setElements,
-        grid: useGrid(10, 10),
+        grid: useGrid(numberElementsX, numberElementsY),
       }}
     >
-      <MainPage />
+      <MainPage
+        numberElementsX={numberElementsX}
+        numberElementsY={numberElementsY}
+      />
     </AppContext.Provider>
   );
 }
