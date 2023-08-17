@@ -1,16 +1,15 @@
-import { useCallback, useContext, useEffect, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { useCallback, useState } from "react";
 import { ICoordinate } from "../types/ICoordinate";
 import { IGrid } from "../types/IGrid";
 import { IGridCellData } from "../types/IGridCellData";
 import { IGridData } from "../types/IGridData";
 import { IGridRowData } from "../types/IGridRowData";
+import { useInitialize } from "./useInitialize";
 
 export const useGrid = (
   numberElementsX: number,
   numberElementsY: number
 ): IGrid => {
-  const context = useContext(AppContext);
   const [data, setData] = useState<IGridData>([]);
 
   const initializeGridData = useCallback((): IGridData => {
@@ -19,11 +18,16 @@ export const useGrid = (
       const row: IGridRowData = [];
       grid.push(row);
       for (let x = 0; x < numberElementsX; x++) {
-        row.push({ color: context.userColor, posX: x, posY: y });
+        row.push({ color: "rgba(128, 128, 128, 0.425)", posX: x, posY: y });
       }
     }
     return grid;
-  }, [context.userColor, numberElementsX, numberElementsY]);
+  }, [numberElementsX, numberElementsY]);
+
+  useInitialize(() => {
+    const data = initializeGridData();
+    setData(data);
+  });
 
   const findAt = (coordinate: ICoordinate): IGridCellData | undefined => {
     return data[coordinate.posX][coordinate.posY];
@@ -42,11 +46,6 @@ export const useGrid = (
       return previous;
     });
   };
-
-  useEffect(() => {
-    const data = initializeGridData();
-    setData(data);
-  }, [initializeGridData]);
 
   return { findAt, updateAt };
 };

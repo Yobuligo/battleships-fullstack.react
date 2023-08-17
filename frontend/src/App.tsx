@@ -15,8 +15,8 @@ function App() {
 
   useEffect(() => {
     request(async () => {
-      const elements = await ElementRepository.findAll();
-      setElements(elements);
+      // const elements = await ElementRepository.findAll();
+      // setElements(elements);
     });
   }, []);
 
