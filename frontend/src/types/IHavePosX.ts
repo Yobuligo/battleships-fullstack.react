@@ -1,4 +1,3 @@
 export interface IHavePosX {
-    posX: number;
-  }
-  
+  posX: number;
+}

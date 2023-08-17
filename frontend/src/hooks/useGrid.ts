@@ -1,5 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
+import { ICoordinate } from "../types/ICoordinate";
 import { IGrid } from "../types/IGrid";
 import { IGridCellData } from "../types/IGridCellData";
 import { IGridData } from "../types/IGridData";
@@ -24,16 +25,16 @@ export const useGrid = (
     return grid;
   }, [context.userColor, numberElementsX, numberElementsY]);
 
-  const findAt = (posX: number, posY: number): IGridCellData | undefined => {
-    return data[posX][posY];
+  const findAt = (coordinate: ICoordinate): IGridCellData | undefined => {
+    return data[coordinate.posX][coordinate.posY];
   };
 
-  const updateAt = (posX: number, posY: number, color: string) => {
+  const updateAt = (coordinate: ICoordinate, color: string) => {
     setData((previous) => {
-      const element = previous[posX][posY];
+      const element = previous[coordinate.posX][coordinate.posY];
       if (!element) {
         throw new Error(
-          `Error when updating grid cell at (${posX},${posY}). Element at position not found.`
+          `Error when updating grid cell at (${coordinate.posX},${coordinate.posY}). Element at position not found.`
         );
       }
 

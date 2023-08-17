@@ -1,4 +1,3 @@
-import { IHavePosX } from "../../types/IHavePosX";
-import { IHavePosY } from "../../types/IHavePosY";
+import { IHaveCoordinate } from "../../types/IHaveCoordinate";
 
-export interface IElementProps extends IHavePosX, IHavePosY {}
+export interface IElementProps extends IHaveCoordinate {}

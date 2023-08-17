@@ -1,6 +1,7 @@
+import { ICoordinate } from "./ICoordinate";
 import { IGridCellData } from "./IGridCellData";
 
 export interface IGrid {
-  findAt(posX: number, posY: number): IGridCellData | undefined;
-  updateAt(posX: number, posY: number, color: string): void;
+  findAt(coordinate: ICoordinate): IGridCellData | undefined;
+  updateAt(coordinate: ICoordinate, color: string): void;
 }
