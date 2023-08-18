@@ -15,7 +15,8 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
       const elements = await ElementRepository.findAll();
       context.grid.updateElements(elements);
     });
-  }, [context.grid]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
