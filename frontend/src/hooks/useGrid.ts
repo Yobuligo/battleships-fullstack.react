@@ -14,10 +14,10 @@ export const useGrid = (
 
   const initializeGridData = useCallback((): IGridData => {
     const grid: IGridData = [];
-    for (let y = 0; y < numberElementsY; y++) {
+    for (let x = 0; x < numberElementsX; x++) {
       const row: IGridRowData = [];
       grid.push(row);
-      for (let x = 0; x < numberElementsX; x++) {
+      for (let y = 0; y < numberElementsY; y++) {
         row.push({ color: "rgba(128, 128, 128, 0.425)", posX: x, posY: y });
       }
     }
@@ -43,7 +43,7 @@ export const useGrid = (
       }
 
       element.color = color;
-      return previous;
+      return { ...previous };
     });
   };
 
