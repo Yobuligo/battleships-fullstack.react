@@ -50,18 +50,20 @@ export const useGrid = (
     });
   }, []);
 
-  const updateElements = useCallback(
-    (elements: IElement[]) => {
+  const updateElements = useCallback((elements: IElement[]) => {
+    if (elements.length === 0) return;
+
+    setData((previous) => {
       elements.forEach((element) => {
-        const gridCell = findAt({ posX: element.posX, posY: element.posY });
+        const gridCell = previous[element.posX][element.posY];
         checkNotNull(
           gridCell,
           `Error when updating grid cell at (${element.posX},${element.posY}). Element at position not found.`
         ).color = element.color;
       });
-    },
-    [findAt]
-  );
+      return { ...previous };
+    });
+  }, []);
 
   return { findAt, updateAt, updateElements };
 };

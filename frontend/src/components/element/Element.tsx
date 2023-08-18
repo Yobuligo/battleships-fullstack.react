@@ -1,4 +1,5 @@
 import { CSSProperties, useContext } from "react";
+import { ElementRepository } from "../../api/ElementRepository";
 import { AppContext } from "../../context/AppContext";
 import styles from "./Element.module.css";
 import { IElementProps } from "./IElementProps";
@@ -17,11 +18,11 @@ export const Element: React.FC<IElementProps> = (props) => {
       style={styleExtension}
       onClick={() => {
         context.grid.updateAt(props.coordinate, context.selectedColor);
-        // ElementRepository.add({
-        //   color: context.userColor,
-        //   posX: props.coordinate.posX,
-        //   posY: props.coordinate.posY,
-        // });
+        ElementRepository.add({
+          color: context.selectedColor,
+          posX: props.coordinate.posX,
+          posY: props.coordinate.posY,
+        });
       }}
     ></div>
   );
