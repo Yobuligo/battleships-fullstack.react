@@ -19,18 +19,13 @@ class Controller {
         this.add();
         this.findAll();
         this.deleteById();
+        this.version();
     }
     add() {
         this.router.post(this.path, (req, res) => __awaiter(this, void 0, void 0, function* () {
             const body = req.body;
             const newEntity = yield this.repository.add(body);
             res.status(201).send(newEntity);
-        }));
-    }
-    findAll() {
-        this.router.get(this.path, (_, res) => __awaiter(this, void 0, void 0, function* () {
-            const entities = yield this.repository.findAll();
-            res.status(200).send(entities);
         }));
     }
     deleteById() {
@@ -42,6 +37,18 @@ class Controller {
             else {
                 res.status(404).send(false);
             }
+        }));
+    }
+    findAll() {
+        this.router.get(this.path, (_, res) => __awaiter(this, void 0, void 0, function* () {
+            const entities = yield this.repository.findAll();
+            res.status(200).send(entities);
+        }));
+    }
+    version() {
+        this.router.get(`${this.path}/version`, (_, res) => __awaiter(this, void 0, void 0, function* () {
+            const version = yield this.repository.version;
+            res.status(200).send(version);
         }));
     }
 }
