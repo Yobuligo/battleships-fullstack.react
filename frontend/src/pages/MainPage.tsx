@@ -1,22 +1,34 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
 import { Field } from "../components/field/Field";
 import { AppContext } from "../context/AppContext";
 import { User } from "../features/user/User";
-import { request } from "../utils/request";
+import { useInitialize } from "../hooks/useInitialize";
 import { IMainPageProps } from "./IMainPageProps";
 import styles from "./MainPage.module.css";
 
 export const MainPage: React.FC<IMainPageProps> = (props) => {
   const context = useContext(AppContext);
 
-  useEffect(() => {
-    request(async () => {
-      const elements = await ElementRepository.findAll();
-      context.grid.updateElements(elements);
-    });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const reload = async () => {
+    const elements = await ElementRepository.findAll();
+    context.grid.updateElements(elements);
+  };
+
+  const onPoll = () => {
+    setTimeout(async () => {
+      const isOutdated = await ElementRepository.isOutdated;
+      if (isOutdated) {
+        await reload();
+      }
+      onPoll();
+    }, 500);
+  };
+
+  useInitialize(async () => {
+    await reload();
+    onPoll();
+  });
 
   return (
     <>
