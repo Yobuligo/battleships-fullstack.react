@@ -1,9 +1,10 @@
 import { IRepository } from "../shared/api/IRepository";
 import { IEntity } from "../shared/types/IEntity";
 import { IEntityDetails } from "../shared/types/IEntityDetails";
+import { IEnvelope } from "../shared/types/IEnvelope";
 
 export class Repository<T extends IEntity> implements IRepository<T> {
-  private _lastVersion = new Date();
+  private _version = new Date();
 
   constructor(private readonly path: string) {}
 
@@ -33,13 +34,14 @@ export class Repository<T extends IEntity> implements IRepository<T> {
     });
   }
 
-  findAll(): Promise<T[]> {
+  findAll(): Promise<IEnvelope<T[]>> {
     return new Promise(async (resolve) => {
       const response = await fetch(this.url, {
         mode: "cors",
         headers: { "Content-Type": "application/json" },
       });
-      const data = await response.json();
+      const data: IEnvelope<T[]> = await response.json();
+      this._version = data.version;
       resolve(data);
     });
   }
@@ -47,7 +49,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
   get isOutdated(): Promise<boolean> {
     return new Promise(async (resolve) => {
       const version = await this.version;
-      resolve(version !== this._lastVersion);
+      resolve(version !== this._version);
     });
   }
 

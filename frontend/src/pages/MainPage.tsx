@@ -12,7 +12,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
 
   const reload = async () => {
     const elements = await ElementRepository.findAll();
-    context.grid.updateElements(elements);
+    context.grid.updateElements(elements.data);
   };
 
   const onPoll = () => {
@@ -22,7 +22,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
         await reload();
       }
       onPoll();
-    }, 500);
+    }, 300);
   };
 
   useInitialize(async () => {

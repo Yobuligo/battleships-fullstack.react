@@ -1,7 +1,8 @@
 import { IdGenerator } from "../services/IdGenerator";
+import { IRepository } from "../shared/api/IRepository";
 import { IEntity } from "../shared/types/IEntity";
 import { IEntityDetails } from "../shared/types/IEntityDetails";
-import { IRepository } from "../shared/api/IRepository";
+import { IEnvelope } from "../shared/types/IEnvelope";
 import { print } from "../shared/utils/print";
 
 export class Repository<T extends IEntity> implements IRepository<T> {
@@ -31,9 +32,9 @@ export class Repository<T extends IEntity> implements IRepository<T> {
     });
   }
 
-  findAll(): Promise<T[]> {
+  findAll(): Promise<IEnvelope<T[]>> {
     return new Promise((resolve) => {
-      resolve(this.data);
+      resolve({ version: this._version, data: this.data });
     });
   }
 

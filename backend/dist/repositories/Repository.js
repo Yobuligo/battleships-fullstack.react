@@ -32,7 +32,7 @@ class Repository {
     }
     findAll() {
         return new Promise((resolve) => {
-            resolve(this.data);
+            resolve({ version: this._version, data: this.data });
         });
     }
     get version() {
