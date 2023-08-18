@@ -1,9 +1,11 @@
 import { useCallback, useState } from "react";
+import { IElement } from "../shared/model/IElement";
 import { ICoordinate } from "../types/ICoordinate";
 import { IGrid } from "../types/IGrid";
 import { IGridCellData } from "../types/IGridCellData";
 import { IGridData } from "../types/IGridData";
 import { IGridRowData } from "../types/IGridRowData";
+import { checkNotNull } from "../utils/checkNotNull";
 import { useInitialize } from "./useInitialize";
 
 export const useGrid = (
@@ -29,22 +31,37 @@ export const useGrid = (
     setData(data);
   });
 
-  const findAt = (coordinate: ICoordinate): IGridCellData | undefined => {
-    return data[coordinate.posX][coordinate.posY];
-  };
+  const findAt = useCallback(
+    (coordinate: ICoordinate): IGridCellData | undefined => {
+      return data[coordinate.posX][coordinate.posY];
+    },
+    [data]
+  );
 
-  const updateAt = (coordinate: ICoordinate, color: string) => {
+  const updateAt = useCallback((coordinate: ICoordinate, color: string) => {
     setData((previous) => {
-      const element = previous[coordinate.posX][coordinate.posY];
-      if (!element) {
-        throw new Error(
-          `Error when updating grid cell at (${coordinate.posX},${coordinate.posY}). Element at position not found.`
-        );
-      }
-      element.color = color;
+      const gridCell = previous[coordinate.posX][coordinate.posY];
+      checkNotNull(
+        gridCell,
+        `Error when updating grid cell at (${coordinate.posX},${coordinate.posY}). Element at position not found.`
+      );
+      gridCell.color = color;
       return { ...previous };
     });
-  };
+  }, []);
 
-  return { findAt, updateAt };
+  const updateElements = useCallback(
+    (elements: IElement[]) => {
+      elements.forEach((element) => {
+        const gridCell = findAt({ posX: element.posX, posY: element.posY });
+        checkNotNull(
+          gridCell,
+          `Error when updating grid cell at (${element.posX},${element.posY}). Element at position not found.`
+        ).color = element.color;
+      });
+    },
+    [findAt]
+  );
+
+  return { findAt, updateAt, updateElements };
 };
