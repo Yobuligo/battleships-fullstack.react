@@ -5,7 +5,6 @@ import { IElementProps } from "./IElementProps";
 
 export const Element: React.FC<IElementProps> = (props) => {
   const context = useContext(AppContext);
-
   const element = context.grid.findAt(props.coordinate);
 
   const styleExtension = {
@@ -17,7 +16,7 @@ export const Element: React.FC<IElementProps> = (props) => {
       className={styles.element}
       style={styleExtension}
       onClick={() => {
-        context.grid.updateAt(props.coordinate, context.userColor);
+        context.grid.updateAt(props.coordinate, context.selectedColor);
         // ElementRepository.add({
         //   color: context.userColor,
         //   posX: props.coordinate.posX,

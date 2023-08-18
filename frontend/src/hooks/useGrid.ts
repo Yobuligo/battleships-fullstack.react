@@ -41,7 +41,6 @@ export const useGrid = (
           `Error when updating grid cell at (${coordinate.posX},${coordinate.posY}). Element at position not found.`
         );
       }
-
       element.color = color;
       return { ...previous };
     });
