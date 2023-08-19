@@ -9,7 +9,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
   constructor(private readonly path: string) {}
 
   add(entity: IEntityDetails<T>): Promise<T> {
-    return new Promise(async (resolve) => {
+    return this.createPromise(async (resolve) => {
       const response = await fetch(this.url, {
         mode: "cors",
         method: "POST",
@@ -24,7 +24,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
   }
 
   deleteById(id: number): Promise<boolean> {
-    return new Promise(async (resolve) => {
+    return this.createPromise(async (resolve) => {
       const response = await fetch(`${this.url}/${id}`, {
         mode: "cors",
         method: "DELETE",
@@ -35,7 +35,7 @@ export class Repository<T extends IEntity> implements IRepository<T> {
   }
 
   findAll(): Promise<IEnvelope<T[]>> {
-    return new Promise(async (resolve) => {
+    return this.createPromise(async (resolve) => {
       const response = await fetch(this.url, {
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -47,14 +47,14 @@ export class Repository<T extends IEntity> implements IRepository<T> {
   }
 
   get isOutdated(): Promise<boolean> {
-    return new Promise(async (resolve) => {
+    return this.createPromise(async (resolve) => {
       const version = await this.version;
       resolve(version !== this._version);
     });
   }
 
   get version(): Promise<Date> {
-    return new Promise(async (resolve) => {
+    return this.createPromise(async (resolve) => {
       const response = await fetch(`${this.url}/version`, {
         mode: "cors",
         headers: { "Content-Type": "application/json" },
@@ -71,5 +71,17 @@ export class Repository<T extends IEntity> implements IRepository<T> {
       );
     }
     return `${process.env.REACT_APP_BACKEND_HOST}${this.path}`;
+  }
+
+  private createPromise<T>(
+    block: (resolve: (value: T | PromiseLike<T>) => void) => void
+  ): Promise<T> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        await block(resolve);
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 }

@@ -22,7 +22,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
         await reload();
       }
       onPoll();
-    }, 300);
+    }, parseInt(process.env.REACT_APP_POLL_FREQUENCY!));
   };
 
   useInitialize(async () => {
