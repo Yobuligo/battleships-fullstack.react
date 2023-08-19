@@ -1,6 +1,6 @@
 import { IHaveNumberElementsX } from "../../types/IHaveNumberElementsX";
 import { IHaveNumberElementsY } from "../../types/IHaveNumberElementsY";
 
-export interface IFieldProps
+export interface IBoardProps
   extends IHaveNumberElementsX,
     IHaveNumberElementsY {}

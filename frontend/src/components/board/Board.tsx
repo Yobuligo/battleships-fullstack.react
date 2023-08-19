@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 import { repeat } from "../../utils/repeat";
 import { ElementRow } from "../elementRow/ElementRow";
-import { IFieldProps } from "./IFieldProps";
+import { IBoardProps } from "./IBoardProps";
 
-export const Field: React.FC<IFieldProps> = (props) => {
+export const Board: React.FC<IBoardProps> = (props) => {
   const items = () => {
     const items: ReactNode[] = [];
     repeat(props.numberElementsY, (index) => {

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
-import { Field } from "../components/field/Field";
+import { Board } from "../components/board/Board";
 import { AppContext } from "../context/AppContext";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
@@ -35,7 +35,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
       <div className={styles.mainPageUser}>
         <User />
       </div>
-      <Field
+      <Board
         numberElementsX={props.numberElementsX}
         numberElementsY={props.numberElementsY}
       />
