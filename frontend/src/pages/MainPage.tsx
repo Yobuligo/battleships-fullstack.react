@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
-import { Board } from "../components/board/Board";
+import { Board } from "../features/board/Board";
 import { AppContext } from "../context/AppContext";
 import { MessageHandler } from "../features/messageHandler/MessageHandler";
 import { User } from "../features/user/User";
