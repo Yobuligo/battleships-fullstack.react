@@ -6,7 +6,7 @@ class PingDefault extends Request implements IPing {
     super(PingMeta.path);
   }
 
-  ping(): Promise<boolean> {
+  run(): Promise<boolean> {
     return new Promise(async (resolve) => {
       const response = await fetch(this.url, {
         mode: "cors",

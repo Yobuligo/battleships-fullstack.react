@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
-import { Board } from "../features/board/Board";
+import { Ping } from "../api/Ping";
 import { AppContext } from "../context/AppContext";
+import { Board } from "../features/board/Board";
 import { MessageHandler } from "../features/messageHandler/MessageHandler";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
@@ -36,6 +37,14 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
       onPoll();
     }, parseInt(process.env.REACT_APP_POLL_FREQUENCY!));
   };
+
+  useInitialize(async () => {
+    try {
+      await Ping.run();
+    } catch (error) {
+
+    }
+  });
 
   useInitialize(async () => {
     try {
