@@ -8,8 +8,13 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
     <>
       {ReactDOM.createPortal(
         <div className={styles.modalContainer}>
-          <div className={styles.modalBackdrop}></div>
-          <div className={styles.modalDialog}>{props.children}</div>
+          <div className={styles.modalBackdrop} onClick={props.onClose}></div>
+          <div className={styles.modalDialog}>
+            <div>
+              <h3>{props.title}</h3>
+            </div>
+            <div>{props.children}</div>
+          </div>
         </div>,
         document.getElementById("modalContainer") ??
           error(
