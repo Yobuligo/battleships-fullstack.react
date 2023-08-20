@@ -1,9 +1,10 @@
 import { IGrid } from "../types/IGrid";
+import { IMessage } from "../types/IMessage";
 
 export interface IAppContext {
   selectedColor: string;
   setSelectedColor: (color: string) => void;
   grid: IGrid;
-  error: any | undefined;
-  setError: (error: any) => void;
+  message: IMessage | undefined;
+  setMessage: (message: IMessage | undefined) => void;
 }

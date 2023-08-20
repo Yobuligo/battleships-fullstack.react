@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
-export const useError = () => {
+export const useMessageHandler = () => {
   const context = useContext(AppContext);
 
-  const show = (error: any) => {
-    context.setError(error);
+  const show = (title: string, message: string) => {
+    context.setMessage({ title, message });
   };
 
   return { show };
