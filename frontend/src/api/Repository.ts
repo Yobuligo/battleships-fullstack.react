@@ -2,11 +2,13 @@ import { IRepository } from "../shared/api/IRepository";
 import { IEntity } from "../shared/types/IEntity";
 import { IEntityDetails } from "../shared/types/IEntityDetails";
 import { IEnvelope } from "../shared/types/IEnvelope";
+import { Request } from "./Request";
 
-export class Repository<T extends IEntity> implements IRepository<T> {
+export class Repository<T extends IEntity>
+  extends Request
+  implements IRepository<T>
+{
   private _version = new Date();
-
-  constructor(private readonly path: string) {}
 
   add(entity: IEntityDetails<T>): Promise<T> {
     return this.createPromise(async (resolve) => {
@@ -61,27 +63,6 @@ export class Repository<T extends IEntity> implements IRepository<T> {
       });
       const data = await response.json();
       resolve(data);
-    });
-  }
-
-  private get url(): string {
-    if (!process.env.REACT_APP_BACKEND_HOST) {
-      throw new Error(
-        `Environment parameter 'REACT_APP_BACKEND_HOST' not found.`
-      );
-    }
-    return `${process.env.REACT_APP_BACKEND_HOST}${this.path}`;
-  }
-
-  private createPromise<T>(
-    block: (resolve: (value: T | PromiseLike<T>) => void) => void
-  ): Promise<T> {
-    return new Promise(async (resolve, reject) => {
-      try {
-        await block(resolve);
-      } catch (error) {
-        reject(error);
-      }
     });
   }
 }
