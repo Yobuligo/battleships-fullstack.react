@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
 import { Board } from "../components/board/Board";
 import { AppContext } from "../context/AppContext";
-import { MessageHandler } from "../features/message/MessageHandler";
+import { MessageHandler } from "../features/messageHandler/MessageHandler";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
 import { useMessageHandler } from "../hooks/useMessageHandler";
