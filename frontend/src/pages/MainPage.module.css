@@ -1,3 +1,8 @@
 .mainPageUser {
   margin-bottom: 1rem;
 }
+
+.mainPageHeader {
+  display: flex;
+  flex-direction: row;
+}
