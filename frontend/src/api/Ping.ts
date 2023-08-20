@@ -7,15 +7,19 @@ class PingDefault extends Request implements IPing {
   }
 
   run(): Promise<boolean> {
-    return new Promise(async (resolve) => {
-      const response = await fetch(this.url, {
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-      });
-      if (response.ok) {
-        resolve(true);
-      } else {
-        resolve(false);
+    return new Promise(async (resolve, reject) => {
+      try {
+        const response = await fetch(this.url, {
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+        });
+        if (response.ok) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      } catch (error) {
+        reject(error);
       }
     });
   }

@@ -5,11 +5,13 @@ import { AppContext } from "../context/AppContext";
 import { Board } from "../features/board/Board";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
+import { useMessageDialog } from "../hooks/useMessageDialog";
 import { IMainPageProps } from "./IMainPageProps";
 import styles from "./MainPage.module.css";
 
 export const MainPage: React.FC<IMainPageProps> = (props) => {
   const context = useContext(AppContext);
+  const messageDialog = useMessageDialog();
 
   const reload = async () => {
     const elements = await ElementRepository.findAll();
@@ -36,7 +38,9 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
   useInitialize(async () => {
     try {
       await Ping.run();
-    } catch (error) {}
+    } catch (error) {
+      messageDialog.show("Error", `Server is not responding`);
+    }
   });
 
   useInitialize(async () => {
