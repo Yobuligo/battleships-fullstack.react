@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
-import { Controller } from "./controllers/Controller";
+import { PingController } from "./controllers/PingController";
+import { RepositoryController } from "./controllers/RepositoryController";
 import { Repository } from "./repositories/Repository";
 import { ElementMeta } from "./shared/model/IElement";
 import { UserMeta } from "./shared/model/IUser";
@@ -16,6 +17,7 @@ server.use((_, res, next) => {
   res.setHeader("access-control-allow-headers", "Content-Type");
   next();
 });
-server.use(new Controller(UserMeta.path, new Repository()).router);
-server.use(new Controller(ElementMeta.path, new Repository()).router);
+server.use(new RepositoryController(UserMeta, new Repository()).router);
+server.use(new RepositoryController(ElementMeta, new Repository()).router);
+server.use(new PingController().router);
 server.listen(5000);

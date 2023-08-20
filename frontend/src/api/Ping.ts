@@ -1,9 +1,9 @@
-import { IPing } from "../shared/api/IPing";
+import { IPing, PingMeta } from "../shared/model/IPing";
 import { Request } from "./Request";
 
 class PingDefault extends Request implements IPing {
   constructor() {
-    super("/ping");
+    super(PingMeta.path);
   }
 
   ping(): Promise<boolean> {

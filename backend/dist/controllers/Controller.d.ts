@@ -1,12 +1,6 @@
-import { IRepository } from "../shared/api/IRepository";
-import { IEntity } from "../shared/types/IEntity";
-export declare class Controller<T extends IEntity> {
-    private readonly path;
-    private readonly repository;
+import { IEntityMeta } from "../shared/types/IEntityMeta";
+export declare abstract class Controller {
     readonly router: import("express-serve-static-core").Router;
-    constructor(path: string, repository: IRepository<T>);
-    private add;
-    private deleteById;
-    private findAll;
-    private version;
+    protected readonly path: string;
+    constructor(path: string | IEntityMeta);
 }
