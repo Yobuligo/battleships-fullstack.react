@@ -13,7 +13,7 @@ import styles from "./MainPage.module.css";
 
 export const MainPage: React.FC<IMainPageProps> = (props) => {
   const context = useContext(AppContext);
-  const message = useMessageHandler();
+  const messageHandler = useMessageHandler();
 
   const reload = async () => {
     const elements = await ElementRepository.findAll();
@@ -27,15 +27,25 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
         if (isOutdated) {
           await reload();
         }
-      } catch (error) {}
+      } catch (error) {
+        if (error instanceof Error) {
+          messageHandler.show(`Error during poll`, error.message);
+        }
+      }
 
       onPoll();
     }, parseInt(process.env.REACT_APP_POLL_FREQUENCY!));
   };
 
   useInitialize(async () => {
-    await reload();
-    onPoll();
+    try {
+      await reload();
+      onPoll();
+    } catch (error) {
+      if (error instanceof Error) {
+        messageHandler.show(`Error during initial load of data`, error.message);
+      }
+    }
   });
 
   return (
