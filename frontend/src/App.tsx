@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./App.css";
 import { ModalDialog } from "./components/modalDialog/ModalDialog";
-import { AppContext } from "./context/AppContext";
+import {
+  AppContext,
+  AppNumberElementsX,
+  AppNumberElementsY,
+} from "./context/AppContext";
 import { useGrid } from "./hooks/useGrid";
 import { MainPage } from "./pages/MainPage";
 import { IModalDialogConfig } from "./types/IModalDialogConfig";
 
 function App() {
-  const numberElementsX = 10;
-  const numberElementsY = 10;
   const [selectedColor, setSelectedColor] = useState("#FF0000");
   const [modalDialogConfig, setModalDialogConfig] =
     useState<IModalDialogConfig>({ show: false });
@@ -18,9 +20,7 @@ function App() {
       value={{
         selectedColor,
         setSelectedColor,
-        gridNumberElementsX: numberElementsX,
-        gridNumberElementsY: numberElementsY,
-        grid: useGrid(numberElementsX, numberElementsY),
+        grid: useGrid(AppNumberElementsX, AppNumberElementsY),
         modalDialogConfig,
         setModalDialogConfig,
       }}
@@ -36,10 +36,7 @@ function App() {
           {modalDialogConfig.component}
         </ModalDialog>
       )}
-      <MainPage
-        numberElementsX={numberElementsX}
-        numberElementsY={numberElementsY}
-      />
+      <MainPage />
     </AppContext.Provider>
   );
 }

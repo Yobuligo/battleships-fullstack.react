@@ -1,0 +1,12 @@
+:root {
+  --tileSize: 3rem;
+}
+
+.tile {
+  width: var(--tileSize);
+  height: var(--tileSize);
+  background-color: var(--backgroundColor);
+  margin-bottom: 0.4rem;
+  margin-right: 0.4rem;
+  box-shadow: 4px 4px 3px rgba(128, 128, 128, 0.486);
+}
