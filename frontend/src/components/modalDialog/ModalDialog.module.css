@@ -17,3 +17,17 @@
   left: 50%;
   transform: translate(-50%);
 }
+
+.modalDialogHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+}
+
+.modalDialogFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-top: 1rem;
+}

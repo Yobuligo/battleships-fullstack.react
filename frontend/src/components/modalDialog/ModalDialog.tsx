@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { error } from "../../utils/error";
+import { Button } from "../button/Button";
 import { Card } from "../card/Card";
 import { IModalDialogProps } from "./IModalDialogProps";
 import styles from "./ModalDialog.module.css";
@@ -11,10 +12,13 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
         <div className={styles.modalContainer}>
           <div className={styles.modalBackdrop} onClick={props.onClose}></div>
           <Card className={styles.modalDialog}>
-            <div>
+            <section className={styles.modalDialogHeader}>
               <h3>{props.title}</h3>
-            </div>
-            <div>{props.children}</div>
+            </section>
+            <section>{props.children}</section>
+            <section className={styles.modalDialogFooter}>
+              <Button onClick={props.onClose}>Close</Button>
+            </section>
           </Card>
         </div>,
         document.getElementById("modalContainer") ??

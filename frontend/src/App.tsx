@@ -25,6 +25,7 @@ function App() {
     >
       {modalDialogConfig.show && (
         <ModalDialog
+          title={modalDialogConfig.title}
           onClose={() => {
             setModalDialogConfig({ show: false });
           }}
