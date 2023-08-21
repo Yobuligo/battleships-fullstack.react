@@ -2,5 +2,12 @@
     "username": "Benutzername",
     "color": "Farbe",
     "serverConnection": "Server Verbindung",
-    "serverNoResponse": "Server antwortet nicht"
+    "serverNoResponse": "Server antwortet nicht",
+    "ship": {
+        "aircraftCarrier": "Flugzeugträger",
+        "battleship": "Schlachtschiff",
+        "cruiser": "Kreuzer",
+        "destroyer": "Zerstörer",
+        "submarine": "U-Boot"
+    }
 }
