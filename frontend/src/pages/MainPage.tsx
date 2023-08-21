@@ -5,39 +5,24 @@ import { Board } from "../features/board/Board";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
 import { usePing } from "../hooks/usePing";
+import { usePolling } from "../hooks/usePolling";
 import { IMainPageProps } from "./IMainPageProps";
 import styles from "./MainPage.module.css";
 
 export const MainPage: React.FC<IMainPageProps> = (props) => {
   const context = useContext(AppContext);
   usePing();
+  const polling = usePolling(ElementRepository, () => reload());
 
   const reload = async () => {
     const elements = await ElementRepository.findAll();
     context.grid.updateElements(elements.data);
   };
 
-  const onPoll = () => {
-    setTimeout(async () => {
-      try {
-        const isOutdated = await ElementRepository.isOutdated;
-        if (isOutdated) {
-          await reload();
-        }
-      } catch (error) {
-        if (error instanceof Error) {
-          console.log(`Error during poll. ${error.message}`);
-        }
-      }
-
-      onPoll();
-    }, parseInt(process.env.REACT_APP_POLL_FREQUENCY!));
-  };
-
   useInitialize(async () => {
     try {
       await reload();
-      onPoll();
+      polling.onPoll();
     } catch (error) {
       if (error instanceof Error) {
         console.log(`Error during initial load of data. ${error.message}`);
