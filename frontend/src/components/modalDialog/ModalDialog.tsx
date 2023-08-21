@@ -8,14 +8,14 @@ import styles from "./ModalDialog.module.css";
 
 export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
   const style = {
-    "--modalDialogWidth": props.width,
+    "--modalDialogWidth": `${props.width}rem`,
   } as CSSProperties;
 
   return (
     <>
       {ReactDOM.createPortal(
         <div className={styles.modalContainer}>
-          <div className={styles.modalBackdrop} onClick={props.onClose}></div>
+          <div className={styles.modalBackdrop}></div>
           <Card className={styles.modalDialog} style={style}>
             <section className={styles.modalDialogHeader}>
               <h3>{props.title}</h3>

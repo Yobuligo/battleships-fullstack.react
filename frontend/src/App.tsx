@@ -25,10 +25,11 @@ function App() {
     >
       {modalDialogConfig.show && (
         <ModalDialog
-          title={modalDialogConfig.title}
           onClose={() => {
             setModalDialogConfig({ show: false });
           }}
+          title={modalDialogConfig.title}
+          width={modalDialogConfig.width}
         >
           {modalDialogConfig.component}
         </ModalDialog>

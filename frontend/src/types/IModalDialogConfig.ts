@@ -4,4 +4,5 @@ export interface IModalDialogConfig {
   component?: ReactNode;
   show: boolean;
   title?: string;
+  width?: number;
 }

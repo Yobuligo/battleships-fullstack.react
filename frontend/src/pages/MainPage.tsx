@@ -39,7 +39,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
     try {
       await Ping.run();
     } catch (error) {
-      messageDialog.show("Server connection", `Server is not responding`);
+      messageDialog.show("Server connection", `Server is not responding`, 20);
     }
   });
 
