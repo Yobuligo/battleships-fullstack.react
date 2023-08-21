@@ -7,14 +7,14 @@ import styles from "./LegendCard.module.css";
 export const LegendCard: React.FC<ILegendCardProps> = (props) => {
   const items = () => {
     const ship: ReactNode[] = [];
-    repeat(props.numberElements, () => ship.push(<Tile />));
+    repeat(props.ship.size, () => ship.push(<Tile color={props.ship.color}/>));
     return ship;
   };
 
   return (
     <div className={styles.legendCard}>
       <div className={styles.legendCardTitle}>
-        {props.amount}x {props.title}
+        {props.amount}x {props.ship.name}
       </div>
       <div className={styles.legendCardShip}>{items()}</div>
     </div>

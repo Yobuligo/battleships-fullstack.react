@@ -21,26 +21,31 @@ function App() {
   const ships: IShip[] = useMemo(() => {
     return [
       {
+        id: 1,
         color: "#BD0000",
         name: t.ship.aircraftCarrier,
         size: 5,
       },
       {
+        id: 2,
         color: "#DB9600",
         name: t.ship.battleship,
         size: 4,
       },
       {
+        id: 3,
         color: "#AACC00",
         name: t.ship.cruiser,
         size: 3,
       },
       {
+        id: 4,
         color: "#008F7E",
         name: t.ship.destroyer,
         size: 2,
       },
       {
+        id: 5,
         color: "#0091FF",
         name: t.ship.submarine,
         size: 1,
@@ -75,7 +80,7 @@ function App() {
           {modalDialogConfig.component}
         </ModalDialog>
       )}
-      <MainPage />
+      <MainPage ships={ships} />
     </AppContext.Provider>
   );
 }

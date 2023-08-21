@@ -1,6 +1,6 @@
+import { IShip } from "../../../model/IShip";
+
 export interface ILegendCardProps {
   amount: number;
-  color: string;
-  numberElements: number;
-  title: string;
+  ship: IShip;
 }

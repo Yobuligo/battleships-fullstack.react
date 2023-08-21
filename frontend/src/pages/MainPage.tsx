@@ -37,7 +37,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
           <User />
         </div>
       </div>
-      <BoardPage />
+      <BoardPage ships={props.ships} />
     </>
   );
 };

@@ -1,49 +1,13 @@
 import { LegendCard } from "../legendCard/LegendCard";
+import { ILegendListProps } from "./ILegendListProps";
 import styles from "./LegendList.module.css";
 
-export const LegendList: React.FC = () => {
-  return (
-    <div className={styles.legendList}>
-      <div className={styles.legendListShip}>
-        <LegendCard
-          title="Aircraft Carrier"
-          amount={1}
-          numberElements={5}
-          color="#000"
-        />
-      </div>
-      <div className={styles.legendListShip}>
-        <LegendCard
-          title="Battleship"
-          amount={2}
-          numberElements={4}
-          color="#000"
-        />
-      </div>
-      <div className={styles.legendListShip}>
-        <LegendCard
-          title="Cruiser"
-          amount={3}
-          numberElements={3}
-          color="#000"
-        />
-      </div>
-      <div className={styles.legendListShip}>
-        <LegendCard
-          title="Destroyer"
-          amount={4}
-          numberElements={2}
-          color="#000"
-        />
-      </div>
-      <div className={styles.legendListShip}>
-        <LegendCard
-          title="Submarine"
-          amount={4}
-          numberElements={1}
-          color="#000"
-        />
-      </div>
+export const LegendList: React.FC<ILegendListProps> = (props) => {
+  const items = props.ships.map((ship) => (
+    <div key={ship.id} className={styles.legendListShip}>
+      <LegendCard amount={1} ship={ship} />
     </div>
-  );
+  ));
+
+  return <div className={styles.legendList}>{items}</div>;
 };
