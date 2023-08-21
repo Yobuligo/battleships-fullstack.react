@@ -1,0 +1,11 @@
+.legendList {
+  display: flex;
+  flex-direction: column;
+}
+
+.legendListShip {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+
+}

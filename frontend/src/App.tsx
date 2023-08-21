@@ -18,6 +18,8 @@ function App() {
       value={{
         selectedColor,
         setSelectedColor,
+        gridNumberElementsX: numberElementsX,
+        gridNumberElementsY: numberElementsY,
         grid: useGrid(numberElementsX, numberElementsY),
         modalDialogConfig,
         setModalDialogConfig,

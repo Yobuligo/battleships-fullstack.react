@@ -3,6 +3,8 @@
     "color": "Color",
     "serverConnection": "Server Connection",
     "serverNoResponse": "Server is not responding",
+    "ownShips": "My Ships",
+    "enemyShips": "Enemy Ships",
     "ship": {
         "aircraftCarrier": "Aircraft Carrier",
         "battleship": "Battleship",

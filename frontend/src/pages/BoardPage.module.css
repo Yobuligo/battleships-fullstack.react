@@ -1,0 +1,11 @@
+.boardPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.boardPageLegendList{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

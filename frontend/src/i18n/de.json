@@ -3,6 +3,8 @@
     "color": "Farbe",
     "serverConnection": "Server Verbindung",
     "serverNoResponse": "Server antwortet nicht",
+    "ownShips": "Eigene Schiffe",
+    "enemyShips": "Feindliche Schiffe",
     "ship": {
         "aircraftCarrier": "Flugzeugträger",
         "battleship": "Schlachtschiff",

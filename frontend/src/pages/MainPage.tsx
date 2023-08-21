@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
 import { AppContext } from "../context/AppContext";
-import { Board } from "../features/board/Board";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
 import { usePing } from "../hooks/usePing";
 import { usePolling } from "../hooks/usePolling";
+import { BoardPage } from "./BoardPage";
 import { IMainPageProps } from "./IMainPageProps";
 import styles from "./MainPage.module.css";
 
@@ -37,10 +37,7 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
           <User />
         </div>
       </div>
-      <Board
-        numberElementsX={props.numberElementsX}
-        numberElementsY={props.numberElementsY}
-      />
+      <BoardPage />
     </>
   );
 };

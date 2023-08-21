@@ -1,0 +1,13 @@
+.legendCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.legendCardTitle{
+  font-size: large;
+}
+
+.legendCardShip {
+  display: flex;
+  flex-direction: row;
+}
