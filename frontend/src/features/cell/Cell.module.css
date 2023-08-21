@@ -1,10 +1,10 @@
 :root {
-  --elementSize: 3rem;
+  --cellSize: 3rem;
 }
 
-.element {
-  width: var(--elementSize);
-  height: var(--elementSize);
+.cell {
+  width: var(--cellSize);
+  height: var(--cellSize);
   background-color: var(--backgroundColor);
   margin-bottom: 0.4rem;
   margin-right: 0.4rem;

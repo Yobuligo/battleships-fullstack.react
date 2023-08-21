@@ -1,3 +1,3 @@
 import { IHaveCoordinate } from "../../types/IHaveCoordinate";
 
-export interface IElementProps extends IHaveCoordinate {}
+export interface ICellProps extends IHaveCoordinate {}

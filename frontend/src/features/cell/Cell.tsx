@@ -2,20 +2,20 @@ import { CSSProperties, useContext } from "react";
 import { ElementRepository } from "../../api/ElementRepository";
 import { AppContext } from "../../context/AppContext";
 import { request } from "../../utils/request";
-import styles from "./Element.module.css";
-import { IElementProps } from "./IElementProps";
+import styles from "./Cell.module.css";
+import { ICellProps } from "./ICellProps";
 
-export const Element: React.FC<IElementProps> = (props) => {
+export const Cell: React.FC<ICellProps> = (props) => {
   const context = useContext(AppContext);
-  const element = context.grid.findAt(props.coordinate);
+  const cell = context.grid.findAt(props.coordinate);
 
   const styleExtension = {
-    "--backgroundColor": element?.color,
+    "--backgroundColor": cell?.color,
   } as CSSProperties;
 
   return (
     <div
-      className={styles.element}
+      className={styles.cell}
       style={styleExtension}
       onClick={() => {
         context.grid.updateAt(props.coordinate, context.selectedColor);

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { repeat } from "../../utils/repeat";
-import { Element } from "../element/Element";
+import { Cell } from "../cell/Cell";
 import styles from "./ElementRow.module.css";
 import { IElementRowProps } from "./IElementRowProps";
 
@@ -10,7 +10,7 @@ export const ElementRow: React.FC<IElementRowProps> = (props) => {
 
     repeat(props.numberElementsX, (index) => {
       items.push(
-        <Element key={index} coordinate={{ posX: index, posY: props.posY }} />
+        <Cell key={index} coordinate={{ posX: index, posY: props.posY }} />
       );
     });
 
