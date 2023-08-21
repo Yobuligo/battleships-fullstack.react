@@ -8,7 +8,5 @@ export const useModalDialog = () => {
     context.setModalDialogConfig({ component, show: true, title, width });
   };
 
-  const close = () => {};
-
-  return { show, close };
+  return { show };
 };

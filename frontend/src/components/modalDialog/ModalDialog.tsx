@@ -17,13 +17,13 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
         <div className={styles.modalContainer}>
           <div className={styles.modalBackdrop}></div>
           <Card className={styles.modalDialog} style={style}>
-            <section className={styles.modalDialogHeader}>
+            <header className={styles.modalDialogHeader}>
               <h3>{props.title}</h3>
-            </section>
+            </header>
             <section>{props.children}</section>
-            <section className={styles.modalDialogFooter}>
+            <footer className={styles.modalDialogFooter}>
               <Button onClick={props.onClose}>Close</Button>
-            </section>
+            </footer>
           </Card>
         </div>,
         document.getElementById("modalContainer") ??
