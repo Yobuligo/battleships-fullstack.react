@@ -1,12 +1,10 @@
-import { ReactNode } from "react";
 import { IGrid } from "../types/IGrid";
+import { IModalDialogConfig } from "../types/IModalDialogConfig";
 
 export interface IAppContext {
   selectedColor: string;
   setSelectedColor: (color: string) => void;
   grid: IGrid;
-  showModalDialog: boolean;
-  setShowModalDialog: (showModalDialog: boolean) => void;
-  modalDialogComponent: ReactNode;
-  setModalDialogComponent: (modalDialogComponent: ReactNode) => void;
+  modalDialogConfig: IModalDialogConfig;
+  setModalDialogConfig: (modalDialogConfig: IModalDialogConfig) => void;
 }

@@ -1,13 +1,11 @@
-import { useContext } from "react";
-import { AppContext } from "../context/AppContext";
 import { Message } from "../features/message/Message";
+import { useModalDialog } from "./useModalDialog";
 
 export const useMessageDialog = () => {
-  const context = useContext(AppContext);
+  const modalDialog = useModalDialog();
 
   const show = (title: string, message: string) => {
-    context.setShowModalDialog(true);
-    context.setModalDialogComponent(<Message message={message} />);
+    modalDialog.show(title, <Message message={message} />);
   };
 
   return { show };
