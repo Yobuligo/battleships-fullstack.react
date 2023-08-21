@@ -25,6 +25,11 @@
   margin: 0;
 }
 
+.modalDialogHeader h3 {
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
 .modalDialogFooter {
   display: flex;
   flex-direction: row;
