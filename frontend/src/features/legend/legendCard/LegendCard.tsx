@@ -7,9 +7,7 @@ import styles from "./LegendCard.module.css";
 export const LegendCard: React.FC<ILegendCardProps> = (props) => {
   const items = () => {
     const ship: ReactNode[] = [];
-    repeat(props.numberElements, (index) => {
-      ship.push(<Tile coordinate={{ posX: index, posY: 0 }} />);
-    });
+    repeat(props.numberElements, () => ship.push(<Tile />));
     return ship;
   };
 

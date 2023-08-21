@@ -1,6 +1,4 @@
-import { IHaveCoordinate } from "../../types/IHaveCoordinate";
-
-export interface ITileProps extends IHaveCoordinate {
+export interface ITileProps {
   color?: string;
   onClick?: () => void;
 }

@@ -1,22 +1,17 @@
-import { CSSProperties, useContext } from "react";
+import { useContext } from "react";
 import { ElementRepository } from "../../api/ElementRepository";
 import { AppContext } from "../../context/AppContext";
 import { request } from "../../utils/request";
-import styles from "./Cell.module.css";
+import { Tile } from "../tile/Tile";
 import { ICellProps } from "./ICellProps";
 
 export const Cell: React.FC<ICellProps> = (props) => {
   const context = useContext(AppContext);
   const cell = context.grid.findAt(props.coordinate);
 
-  const styleExtension = {
-    "--backgroundColor": cell?.color,
-  } as CSSProperties;
-
   return (
-    <div
-      className={styles.cell}
-      style={styleExtension}
+    <Tile
+      color={cell?.color}
       onClick={() => {
         context.grid.updateAt(props.coordinate, context.selectedColor);
         request(async () => {
@@ -35,6 +30,6 @@ export const Cell: React.FC<ICellProps> = (props) => {
           }
         });
       }}
-    ></div>
+    ></Tile>
   );
 };
