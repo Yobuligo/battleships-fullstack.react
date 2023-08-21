@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { repeat } from "../../../utils/repeat";
-import { Cell } from "../../cell/Cell";
+import { Tile } from "../../tile/Tile";
 import { ILegendCardProps } from "./ILegendCardProps";
 import styles from "./LegendCard.module.css";
 
@@ -8,7 +8,7 @@ export const LegendCard: React.FC<ILegendCardProps> = (props) => {
   const items = () => {
     const ship: ReactNode[] = [];
     repeat(props.numberElements, (index) => {
-      ship.push(<Cell coordinate={{ posX: index, posY: 0 }} />);
+      ship.push(<Tile coordinate={{ posX: index, posY: 0 }} />);
     });
     return ship;
   };

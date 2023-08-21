@@ -1,5 +1,5 @@
-import { useCallback, useContext, useState } from "react";
-import { AppContext } from "../context/AppContext";
+import { useCallback, useState } from "react";
+import { AppTileDefaultColor } from "../context/AppContext";
 import { IElement } from "../shared/model/IElement";
 import { ICoordinate } from "../types/ICoordinate";
 import { IGrid } from "../types/IGrid";
@@ -14,7 +14,6 @@ export const useGrid = (
   numberElementsY: number
 ): IGrid => {
   const [data, setData] = useState<IGridData>([]);
-  const context = useContext(AppContext);
 
   const initializeGridData = useCallback((): IGridData => {
     const grid: IGridData = [];
@@ -22,11 +21,11 @@ export const useGrid = (
       const row: IGridRowData = [];
       grid.push(row);
       for (let y = 0; y < numberElementsY; y++) {
-        row.push({ color: context.tileDefaultColor, posX: x, posY: y });
+        row.push({ color: AppTileDefaultColor, posX: x, posY: y });
       }
     }
     return grid;
-  }, [numberElementsX, numberElementsY, context.tileDefaultColor]);
+  }, [numberElementsX, numberElementsY]);
 
   useInitialize(() => {
     const data = initializeGridData();
