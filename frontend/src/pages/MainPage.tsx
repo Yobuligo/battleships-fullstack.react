@@ -1,17 +1,16 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
-import { Ping } from "../api/Ping";
 import { AppContext } from "../context/AppContext";
 import { Board } from "../features/board/Board";
 import { User } from "../features/user/User";
 import { useInitialize } from "../hooks/useInitialize";
-import { useMessageDialog } from "../hooks/useMessageDialog";
+import { usePing } from "../hooks/usePing";
 import { IMainPageProps } from "./IMainPageProps";
 import styles from "./MainPage.module.css";
 
 export const MainPage: React.FC<IMainPageProps> = (props) => {
   const context = useContext(AppContext);
-  const messageDialog = useMessageDialog();
+  usePing();
 
   const reload = async () => {
     const elements = await ElementRepository.findAll();
@@ -34,14 +33,6 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
       onPoll();
     }, parseInt(process.env.REACT_APP_POLL_FREQUENCY!));
   };
-
-  useInitialize(async () => {
-    try {
-      await Ping.run();
-    } catch (error) {
-      messageDialog.show("Server connection", `Server is not responding`, 20);
-    }
-  });
 
   useInitialize(async () => {
     try {

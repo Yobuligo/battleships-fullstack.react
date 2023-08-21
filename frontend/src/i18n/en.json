@@ -1,4 +1,6 @@
 {
     "username": "Username",
-    "color": "Color"
+    "color": "Color",
+    "serverConnection": "Server Connection",
+    "serverNoResponse": "Server is not responding"
 }
