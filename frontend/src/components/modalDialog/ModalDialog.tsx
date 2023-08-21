@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import ReactDOM from "react-dom";
 import { error } from "../../utils/error";
 import { Button } from "../button/Button";
@@ -6,12 +7,16 @@ import { IModalDialogProps } from "./IModalDialogProps";
 import styles from "./ModalDialog.module.css";
 
 export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
+  const style = {
+    "--modalDialogWidth": props.width,
+  } as CSSProperties;
+
   return (
     <>
       {ReactDOM.createPortal(
         <div className={styles.modalContainer}>
           <div className={styles.modalBackdrop} onClick={props.onClose}></div>
-          <Card className={styles.modalDialog}>
+          <Card className={styles.modalDialog} style={style}>
             <section className={styles.modalDialogHeader}>
               <h3>{props.title}</h3>
             </section>

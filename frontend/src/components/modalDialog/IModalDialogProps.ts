@@ -4,4 +4,5 @@ export interface IModalDialogProps {
   children: ReactNode;
   onClose: () => void;
   title?: string;
+  width?: number;
 }
