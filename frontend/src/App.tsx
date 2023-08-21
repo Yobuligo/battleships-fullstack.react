@@ -21,32 +21,37 @@ function App() {
   const ships: IShip[] = useMemo(() => {
     return [
       {
-        id: 1,
+        amount: 1,
         color: "#BD0000",
+        id: 1,
         name: t.ship.aircraftCarrier,
         size: 5,
       },
       {
-        id: 2,
+        amount: 2,
         color: "#DB9600",
+        id: 2,
         name: t.ship.battleship,
         size: 4,
       },
       {
-        id: 3,
+        amount: 3,
         color: "#AACC00",
+        id: 3,
         name: t.ship.cruiser,
         size: 3,
       },
       {
-        id: 4,
+        amount: 4,
         color: "#008F7E",
+        id: 4,
         name: t.ship.destroyer,
         size: 2,
       },
       {
-        id: 5,
+        amount: 5,
         color: "#0091FF",
+        id: 5,
         name: t.ship.submarine,
         size: 1,
       },

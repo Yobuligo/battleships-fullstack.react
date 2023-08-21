@@ -5,7 +5,7 @@ import styles from "./LegendList.module.css";
 export const LegendList: React.FC<ILegendListProps> = (props) => {
   const items = props.ships.map((ship) => (
     <div key={ship.id} className={styles.legendListShip}>
-      <LegendCard amount={1} ship={ship} />
+      <LegendCard ship={ship} />
     </div>
   ));
 
