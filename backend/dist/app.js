@@ -5,9 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const body_parser_1 = __importDefault(require("body-parser"));
 const express_1 = __importDefault(require("express"));
-const LoginController_1 = require("./controllers/LoginController");
+const AccountController_1 = require("./controllers/AccountController");
 const PingController_1 = require("./controllers/PingController");
 const RepositoryController_1 = require("./controllers/RepositoryController");
+const SessionController_1 = require("./controllers/SessionController");
 const UserController_1 = require("./controllers/UserController");
 const Repository_1 = require("./repositories/Repository");
 const IElement_1 = require("./shared/model/IElement");
@@ -19,9 +20,10 @@ server.use((_, res, next) => {
     res.setHeader("access-control-allow-headers", "Content-Type");
     next();
 });
-server.use(UserController_1.UserController.router);
-server.use(LoginController_1.LoginController.router);
+server.use(AccountController_1.AccountController.router);
 server.use(PingController_1.PingController.router);
+server.use(SessionController_1.SessionController.router);
+server.use(UserController_1.UserController.router);
 server.use(new RepositoryController_1.RepositoryController(IElement_1.ElementMeta, new Repository_1.Repository()).router);
 server.listen(5000);
 //# sourceMappingURL=app.js.map

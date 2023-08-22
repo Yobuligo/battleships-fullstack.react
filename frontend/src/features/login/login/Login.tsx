@@ -1,28 +1,45 @@
-import { useState } from "react";
-import { LoginApi } from "../../../api/LoginApi";
-import { UnknownUserError } from "../../../api/UnknownUserError";
+import { useContext, useState } from "react";
+import { AccountApi } from "../../../api/account/AccountApi";
+import { UnknownUserError } from "../../../api/account/UnknownUserError";
 import { Button } from "../../../components/button/Button";
 import { Dialog } from "../../../components/dialog/Dialog";
 import { LabeledInput } from "../../../components/labeledInput/LabeledInput";
+import { AppContext } from "../../../context/AppContext";
 import { useMessageDialog } from "../../../hooks/useMessageDialog";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { ILoginProps } from "./ILoginProps";
 import styles from "./Login.module.css";
 
-export const Login: React.FC = () => {
+export const Login: React.FC<ILoginProps> = (props) => {
+  const context = useContext(AppContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { t } = useTranslation();
   const messageDialog = useMessageDialog();
 
+  const onCreateAccount = async () => {
+    try {
+      const session = await AccountApi.createAccount({ username, password });
+      props.onLogin?.(session);
+      context.session.setValue(session);
+    } catch (error) {
+      messageDialog.show(
+        t.login.createAccountErrorTitle,
+        t.login.createAccountErrorDetails
+      );
+    }
+  };
+
   const onLogin = async () => {
     try {
-      await LoginApi.login({ username, password });
+      const session = await AccountApi.login({ username, password });
+      props.onLogin?.(session);
     } catch (error) {
       if (error instanceof UnknownUserError) {
         messageDialog.show(
           t.login.incorrectCredentialsTitle,
           t.login.incorrectCredentialsDetails,
-          <Button>{t.login.createAccount}</Button>
+          <Button onClick={onCreateAccount}>{t.login.createAccount}</Button>
         );
       } else {
         messageDialog.show(

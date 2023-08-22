@@ -1,8 +1,9 @@
 import bodyParser from "body-parser";
 import express from "express";
-import { LoginController } from "./controllers/LoginController";
+import { AccountController } from "./controllers/AccountController";
 import { PingController } from "./controllers/PingController";
 import { RepositoryController } from "./controllers/RepositoryController";
+import { SessionController } from "./controllers/SessionController";
 import { UserController } from "./controllers/UserController";
 import { Repository } from "./repositories/Repository";
 import { ElementMeta } from "./shared/model/IElement";
@@ -18,8 +19,9 @@ server.use((_, res, next) => {
   res.setHeader("access-control-allow-headers", "Content-Type");
   next();
 });
-server.use(UserController.router);
-server.use(LoginController.router);
+server.use(AccountController.router);
 server.use(PingController.router);
+server.use(SessionController.router);
+server.use(UserController.router);
 server.use(new RepositoryController(ElementMeta, new Repository()).router);
 server.listen(5000);

@@ -9,28 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserRepository = void 0;
+exports.SessionRepository = void 0;
 const Repository_1 = require("./Repository");
-class UserRepositoryDefault extends Repository_1.Repository {
-    create(credentials) {
+class SessionRepositoryDefault extends Repository_1.Repository {
+    create(username) {
         return new Promise((resolve) => __awaiter(this, void 0, void 0, function* () {
-            const user = yield this.add(credentials);
-            resolve(user);
+            const session = yield this.add({ username });
+            resolve(session);
         }));
     }
-    findByCredentials(credentials) {
-        return new Promise((resolve) => {
-            const user = this.data.find((user) => user.username === credentials.username &&
-                user.password === credentials.password);
-            resolve(user);
-        });
-    }
-    findByUsername(username) {
-        return new Promise((resolve) => {
-            const user = this.data.find((user) => user.username === username);
-            resolve(user);
-        });
-    }
 }
-exports.UserRepository = new UserRepositoryDefault();
-//# sourceMappingURL=UserRepository.js.map
+exports.SessionRepository = new SessionRepositoryDefault();
+//# sourceMappingURL=SessionRepository.js.map
