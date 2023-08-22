@@ -6,7 +6,7 @@ export const useSession = () => {
   const context = useContext(AppContext);
 
   const isLoggedIn = () => {
-    return isNotNull(context.session);
+    return isNotNull(context.session.value);
   };
 
   return { isLoggedIn };
