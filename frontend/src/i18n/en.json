@@ -1,4 +1,5 @@
 {
+    "name": "Battleship",
     "username": "Username",
     "color": "Color",
     "serverConnection": "Server Connection",

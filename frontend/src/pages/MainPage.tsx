@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
 import { AppContext } from "../context/AppContext";
-import { User } from "../features/user/User";
+import { Title } from "../features/title/Title";
 import { useInitialize } from "../hooks/useInitialize";
 import { usePing } from "../hooks/usePing";
 import { usePolling } from "../hooks/usePolling";
@@ -32,12 +32,13 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
 
   return (
     <>
-      <div className={styles.mainPageHeader}>
-        <div className={styles.mainPageUser}>
-          <User />
-        </div>
-      </div>
-      <BoardPage ships={props.ships} />
+      <header className={styles.mainPageHeader}>
+        <Title />
+      </header>
+      <main>
+        <BoardPage ships={props.ships} />
+      </main>
+      <footer></footer>
     </>
   );
 };

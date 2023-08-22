@@ -1,7 +1,14 @@
 export interface IShip {
-  amount: number;
-  color: string;
-  id: number;
-  name: string;
-  size: number;
+  /**
+   * Defines how many of these ship type can be placed
+   */
+  readonly amount: number;
+  readonly color: string;
+  readonly id: number;
+  readonly name: string;
+
+  /**
+   * Defines the length of this ship (e.g. 4 elements long)
+   */
+  readonly size: number;
 }

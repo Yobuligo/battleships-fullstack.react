@@ -22,28 +22,28 @@ function App() {
     return [
       {
         amount: 1,
-        color: "#BD0000",
+        color: "#0091FF",
         id: 1,
         name: t.ship.aircraftCarrier,
         size: 5,
       },
       {
         amount: 2,
-        color: "#DB9600",
+        color: "#0091FF",
         id: 2,
         name: t.ship.battleship,
         size: 4,
       },
       {
         amount: 3,
-        color: "#AACC00",
+        color: "#0091FF",
         id: 3,
         name: t.ship.cruiser,
         size: 3,
       },
       {
         amount: 4,
-        color: "#008F7E",
+        color: "#0091FF",
         id: 4,
         name: t.ship.destroyer,
         size: 2,
