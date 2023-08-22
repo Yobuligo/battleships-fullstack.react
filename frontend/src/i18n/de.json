@@ -11,7 +11,7 @@
         "username": "Username",
         "password": "Password",
         "incorrectCredentialsTitle": "Ungültiger Benutzer oder Passwort",
-        "incorrectCredentialsDetails": "Der eingegebene Benutzername oder das Passwort waren ungültig.\nVersuchen Sie es erneut oder erstellen sie einen Benutzer, falls Sie keinen haben.",
+        "incorrectCredentialsDetails": "Der eingegebene Benutzername oder das Passwort waren ungültig. Versuchen Sie es erneut oder erstellen sie einen Benutzer, falls Sie keinen haben.",
         "createAccount": "Benutzer erstellen"
     },
     "ship": {

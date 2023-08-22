@@ -11,7 +11,7 @@
         "username": "Username",
         "password": "Password",
         "incorrectCredentialsTitle": "Incorrect username or password",
-        "incorrectCredentialsDetails": "The entered username or password were incorrect.\nRetry or create a new account if haven't one yet.",
+        "incorrectCredentialsDetails": "The entered username or password were incorrect. Retry or create a new account if haven't one yet.",
         "createAccount": "Create Account"
     },
     "ship": {
