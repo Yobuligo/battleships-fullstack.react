@@ -13,7 +13,12 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
           <div className={styles.modalBackdrop}></div>
           <Dialog
             className={styles.modalDialog}
-            footer={<Button onClick={props.onClose}>Close</Button>}
+            footer={
+              <>
+                {props.footer}
+                <Button onClick={props.onClose}>Close</Button>
+              </>
+            }
             title={props.title}
             width={props.width}
           >

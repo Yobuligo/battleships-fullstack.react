@@ -1,4 +1,4 @@
-import { Ping } from "../api/Ping";
+import { PingApi } from "../api/PingApi";
 import { useInitialize } from "./useInitialize";
 import { useMessageDialog } from "./useMessageDialog";
 import { useTranslation } from "./useTranslation";
@@ -9,7 +9,7 @@ export const usePing = () => {
 
   useInitialize(async () => {
     try {
-      await Ping.run();
+      await PingApi.run();
     } catch (error) {
       messageDialog.show(t.serverConnection, t.serverNoResponse, 20);
     }

@@ -1,7 +1,7 @@
 import { IPing, PingMeta } from "../shared/api/IPing";
 import { Request } from "./Request";
 
-class PingDefault extends Request implements IPing {
+class PingApiDefault extends Request implements IPing {
   constructor() {
     super(PingMeta.path);
   }
@@ -22,4 +22,4 @@ class PingDefault extends Request implements IPing {
   }
 }
 
-export const Ping = new PingDefault();
+export const PingApi = new PingApiDefault();

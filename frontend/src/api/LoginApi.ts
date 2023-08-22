@@ -2,7 +2,7 @@ import { ILogin, LoginMeta } from "../shared/api/ILogin";
 import { ISession } from "../shared/model/ISession";
 import { Request } from "./Request";
 
-class LoginDefault extends Request implements ILogin {
+class LoginApiDefault extends Request implements ILogin {
   constructor() {
     super(LoginMeta.path);
   }
@@ -16,4 +16,4 @@ class LoginDefault extends Request implements ILogin {
   }
 }
 
-export const Login = new LoginDefault();
+export const LoginApi = new LoginApiDefault();
