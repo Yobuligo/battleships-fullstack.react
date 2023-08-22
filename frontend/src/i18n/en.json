@@ -8,6 +8,7 @@
     "enemyShips": "Enemy Ships",
     "startMenu": {
         "login": "Login",
+        "logout": "Logout",
         "createGame": "Create Game",
         "joinGame": "Join Game",
         "setup": "Setup"

@@ -8,12 +8,14 @@ import {
 } from "./context/AppContext";
 import { useGrid } from "./hooks/useGrid";
 import { HomePage } from "./pages/HomePage";
+import { ISession } from "./shared/model/ISession";
 import { IModalDialogConfig } from "./types/IModalDialogConfig";
 
 function App() {
   const [selectedColor, setSelectedColor] = useState("#FF0000");
   const [modalDialogConfig, setModalDialogConfig] =
     useState<IModalDialogConfig>({ show: false });
+  const [session, setSession] = useState<ISession | undefined>(undefined);
 
   return (
     <AppContext.Provider
@@ -23,6 +25,8 @@ function App() {
         grid: useGrid(AppNumberElementsX, AppNumberElementsY),
         modalDialogConfig,
         setModalDialogConfig,
+        session,
+        setSession,
       }}
     >
       {modalDialogConfig.show && (
