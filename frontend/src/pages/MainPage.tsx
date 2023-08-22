@@ -1,15 +1,13 @@
 import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
+import { Page } from "../components/page/Page";
 import { AppContext } from "../context/AppContext";
-import { Title } from "../features/title/Title";
 import { useInitialize } from "../hooks/useInitialize";
 import { usePing } from "../hooks/usePing";
 import { usePolling } from "../hooks/usePolling";
 import { BoardPage } from "./BoardPage";
-import { IMainPageProps } from "./IMainPageProps";
-import styles from "./MainPage.module.css";
 
-export const MainPage: React.FC<IMainPageProps> = (props) => {
+export const MainPage: React.FC = () => {
   const context = useContext(AppContext);
   usePing();
   const polling = usePolling(ElementRepository, () => reload());
@@ -31,14 +29,8 @@ export const MainPage: React.FC<IMainPageProps> = (props) => {
   });
 
   return (
-    <>
-      <header className={styles.mainPageHeader}>
-        <Title />
-      </header>
-      <main>
-        <BoardPage ships={props.ships} />
-      </main>
-      <footer></footer>
-    </>
+    <Page>
+      <BoardPage />
+    </Page>
   );
 };

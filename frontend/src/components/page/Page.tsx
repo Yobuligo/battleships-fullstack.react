@@ -5,7 +5,7 @@ import styles from "./Page.module.css";
 export const Page: React.FC<IPageProps> = (props) => {
   return (
     <>
-      <header className={styles.mainPageHeader}>
+      <header className={styles.pageHeader}>
         <Title />
       </header>
       <main>{props.children}</main>
