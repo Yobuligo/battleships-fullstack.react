@@ -6,6 +6,12 @@
     "serverNoResponse": "Server is not responding",
     "ownShips": "My Ships",
     "enemyShips": "Enemy Ships",
+    "startMenu": {
+        "login": "Login",
+        "createGame": "Create Game",
+        "joinGame": "Join Game",
+        "setup": "Setup"
+    },
     "ship": {
         "aircraftCarrier": "Aircraft Carrier",
         "battleship": "Battleship",

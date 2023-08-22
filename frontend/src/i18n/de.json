@@ -6,6 +6,12 @@
     "serverNoResponse": "Server antwortet nicht",
     "ownShips": "Eigene Schiffe",
     "enemyShips": "Feindliche Schiffe",
+    "startMenu": {
+        "login": "Login",
+        "createGame": "Spiel erstellen",
+        "joinGame": "Spiel beitreten",
+        "setup": "Einstellungen"
+    },
     "ship": {
         "aircraftCarrier": "Flugzeugträger",
         "battleship": "Schlachtschiff",
