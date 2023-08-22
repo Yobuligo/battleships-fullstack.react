@@ -5,8 +5,8 @@ import styles from "./BoardPage.module.css";
 import { IBoardPageProps } from "./IBoardPageProps";
 
 export const BoardPage: React.FC<IBoardPageProps> = (props) => {
+  
   const { t } = useTranslation();
-
   return (
     <div className={styles.boardPage}>
       <div>
