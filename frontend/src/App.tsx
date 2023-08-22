@@ -25,6 +25,7 @@ function App() {
     >
       {modalDialogConfig.value.show && (
         <ModalDialog
+          footer={modalDialogConfig.value.footer}
           onClose={() => {
             modalDialogConfig.setValue({ show: false });
           }}

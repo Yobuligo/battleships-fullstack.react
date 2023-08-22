@@ -11,7 +11,7 @@ export const usePing = () => {
     try {
       await PingApi.run();
     } catch (error) {
-      messageDialog.show(t.serverConnection, t.serverNoResponse, 20);
+      messageDialog.show(t.serverConnection, t.serverNoResponse, undefined, 20);
     }
   });
 };

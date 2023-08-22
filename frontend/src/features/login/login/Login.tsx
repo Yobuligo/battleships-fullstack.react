@@ -11,8 +11,9 @@ export const Login: React.FC = () => {
 
   const onLogin = () => {
     messageDialog.show(
-      "Incorrect username or password",
-      "The entered username or password were incorrect. Retry or create a new account."
+      t.login.incorrectCredentialsTitle,
+      t.login.incorrectCredentialsDetails,
+      <Button>{t.login.createAccount}</Button>
     );
   };
 

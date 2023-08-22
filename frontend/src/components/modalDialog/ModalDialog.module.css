@@ -17,3 +17,7 @@
   left: 50%;
   transform: translate(-50%);
 }
+
+.modalDialogFooter button {
+  margin-left: 0.5rem;
+}
