@@ -1,30 +1,24 @@
-import { CSSProperties } from "react";
 import ReactDOM from "react-dom";
 import { error } from "../../utils/error";
 import { Button } from "../button/Button";
-import { Card } from "../card/Card";
+import { Dialog } from "../dialog/Dialog";
 import { IModalDialogProps } from "./IModalDialogProps";
 import styles from "./ModalDialog.module.css";
 
 export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
-  const style = {
-    "--modalDialogWidth": `${props.width}rem`,
-  } as CSSProperties;
-
   return (
     <>
       {ReactDOM.createPortal(
         <div className={styles.modalContainer}>
           <div className={styles.modalBackdrop}></div>
-          <Card className={styles.modalDialog} style={style}>
-            <header className={styles.modalDialogHeader}>
-              <h3>{props.title}</h3>
-            </header>
-            <section>{props.children}</section>
-            <footer className={styles.modalDialogFooter}>
-              <Button onClick={props.onClose}>Close</Button>
-            </footer>
-          </Card>
+          <Dialog
+            className={styles.modalDialog}
+            footer={<Button onClick={props.onClose}>Close</Button>}
+            title={props.title}
+            width={props.width}
+          >
+            {props.children}
+          </Dialog>
         </div>,
         document.getElementById("modalContainer") ??
           error(

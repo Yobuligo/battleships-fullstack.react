@@ -1,0 +1,26 @@
+:root {
+  --dialogWidth: auto;
+}
+
+.dialog {
+  width: var(--dialogWidth);
+}
+
+.dialogHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+}
+
+.dialogHeader h3 {
+  border-bottom: 1px solid black;
+  padding-bottom: 0.5rem;
+}
+
+.dialogFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-top: 1rem;
+}

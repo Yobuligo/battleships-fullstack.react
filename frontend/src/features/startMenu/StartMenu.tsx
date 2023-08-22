@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useSession } from "../../hooks/useSession";
 import { Login } from "../login/Login";
 import { IStartMenuProps } from "./IStartMenuProps";
 import { StartMenuOptions } from "./options/StartMenuOptions";
 
 export const StartMenu: React.FC<IStartMenuProps> = (props) => {
-  const [type, setType] = useState("Options");
+  const session = useSession();
+
   return (
-    <section>
-      {type === "Options" && (
-        <StartMenuOptions onLogin={() => setType("Login")} />
-      )}
-      {type === "Login" && <Login />}
-    </section>
+    <section>{session.isLoggedIn() ? <StartMenuOptions /> : <Login />}</section>
   );
 };

@@ -20,12 +20,7 @@ function App() {
         selectedColor: useValue<string>("#FF0000"),
         grid: useGrid(AppNumberElementsX, AppNumberElementsY),
         modalDialogConfig,
-        session: useValue<ISession | undefined>({
-          id: 1,
-          createdAt: new Date(),
-          changedAt: new Date(),
-          username: "Peter",
-        }),
+        session: useValue<ISession | undefined>(undefined),
       }}
     >
       {modalDialogConfig.value.show && (

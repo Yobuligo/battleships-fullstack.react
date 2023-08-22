@@ -1,7 +1,3 @@
-:root {
-  --modalDialogWidth: auto;
-}
-
 .modalContainer {
   position: fixed;
   width: 100%;
@@ -20,24 +16,4 @@
   top: 10%;
   left: 50%;
   transform: translate(-50%);
-  width: var(--modalDialogWidth);
-}
-
-.modalDialogHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0;
-}
-
-.modalDialogHeader h3 {
-  border-bottom: 1px solid black;
-  padding-bottom: 0.5rem;
-}
-
-.modalDialogFooter {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-  margin-top: 1rem;
 }
