@@ -6,8 +6,8 @@ import { IEnvelope } from "../shared/types/IEnvelope";
 import { print } from "../shared/utils/print";
 
 export class Repository<T extends IEntity> implements IRepository<T> {
-  private _version = new Date();
-  private data: T[] = [];
+  protected _version = new Date();
+  protected data: T[] = [];
 
   add(entity: IEntityDetails<T>): Promise<T> {
     return new Promise((resolve) => {

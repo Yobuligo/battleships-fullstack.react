@@ -1,7 +1,7 @@
-import { PingMeta } from "../shared/model/IPing";
+import { PingMeta } from "../shared/api/IPing";
 import { Controller } from "./Controller";
 
-export class PingController extends Controller {
+class PingControllerDefault extends Controller {
   constructor() {
     super(PingMeta);
     this.ping();
@@ -13,3 +13,5 @@ export class PingController extends Controller {
     });
   }
 }
+
+export const PingController = new PingControllerDefault();

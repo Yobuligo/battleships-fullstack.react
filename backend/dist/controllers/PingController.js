@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PingController = void 0;
-const IPing_1 = require("../shared/model/IPing");
+const IPing_1 = require("../shared/api/IPing");
 const Controller_1 = require("./Controller");
-class PingController extends Controller_1.Controller {
+class PingControllerDefault extends Controller_1.Controller {
     constructor() {
         super(IPing_1.PingMeta);
         this.ping();
@@ -14,5 +14,5 @@ class PingController extends Controller_1.Controller {
         });
     }
 }
-exports.PingController = PingController;
+exports.PingController = new PingControllerDefault();
 //# sourceMappingURL=PingController.js.map
