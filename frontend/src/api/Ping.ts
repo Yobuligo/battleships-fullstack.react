@@ -1,4 +1,4 @@
-import { IPing, PingMeta } from "../shared/model/IPing";
+import { IPing, PingMeta } from "../shared/api/IPing";
 import { Request } from "./Request";
 
 class PingDefault extends Request implements IPing {
@@ -9,10 +9,7 @@ class PingDefault extends Request implements IPing {
   run(): Promise<boolean> {
     return new Promise(async (resolve, reject) => {
       try {
-        const response = await fetch(this.url, {
-          mode: "cors",
-          headers: { "Content-Type": "application/json" },
-        });
+        const response = await this.get(this.url);
         if (response.ok) {
           resolve(true);
         } else {

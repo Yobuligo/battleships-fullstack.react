@@ -21,4 +21,29 @@ export abstract class Request {
       }
     });
   }
+
+  protected delete(url: string) {
+    return fetch(url, {
+      mode: "cors",
+      method: "DELETE",
+    });
+  }
+
+  protected get(url: string) {
+    return fetch(url, {
+      mode: "cors",
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  protected post<T>(url: string, data: T) {
+    return fetch(url, {
+      mode: "cors",
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 }

@@ -12,14 +12,7 @@ export class Repository<T extends IEntity>
 
   add(entity: IEntityDetails<T>): Promise<T> {
     return this.createPromise(async (resolve) => {
-      const response = await fetch(this.url, {
-        mode: "cors",
-        method: "POST",
-        body: JSON.stringify(entity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await this.post(this.url, entity);
       const data = await response.json();
       resolve(data);
     });
@@ -27,10 +20,7 @@ export class Repository<T extends IEntity>
 
   deleteById(id: number): Promise<boolean> {
     return this.createPromise(async (resolve) => {
-      const response = await fetch(`${this.url}/${id}`, {
-        mode: "cors",
-        method: "DELETE",
-      });
+      const response = await this.delete(`${this.url}/${id}`);
       const data = response.json();
       resolve(data);
     });
@@ -38,10 +28,7 @@ export class Repository<T extends IEntity>
 
   findAll(): Promise<IEnvelope<T[]>> {
     return this.createPromise(async (resolve) => {
-      const response = await fetch(this.url, {
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await this.get(this.url);
       const data: IEnvelope<T[]> = await response.json();
       this._version = data.version;
       resolve(data);
@@ -57,10 +44,7 @@ export class Repository<T extends IEntity>
 
   get version(): Promise<Date> {
     return this.createPromise(async (resolve) => {
-      const response = await fetch(`${this.url}/version`, {
-        mode: "cors",
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await this.get(`${this.url}/version`);
       const data = await response.json();
       resolve(data);
     });
