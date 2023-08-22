@@ -15,7 +15,7 @@ export const ModalDialog: React.FC<IModalDialogProps> = (props) => {
             className={styles.modalDialog}
             footer={
               <div className={styles.modalDialogFooter}>
-                {props.footer && props.footer}
+                {props.footer && props.footer(props.onClose)}
                 <Button onClick={props.onClose}>Close</Button>
               </div>
             }

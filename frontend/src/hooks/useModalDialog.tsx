@@ -7,7 +7,7 @@ export const useModalDialog = () => {
   const show = (
     title: string,
     component: ReactNode,
-    footer?: ReactNode,
+    footer?: (onClose: ()=>void)=> ReactNode,
     width?: number
   ) => {
     context.modalDialogConfig.setValue({

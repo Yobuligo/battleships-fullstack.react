@@ -8,7 +8,7 @@ export const useMessageDialog = () => {
   const show = (
     title: string,
     message: string,
-    footer?: ReactNode,
+    footer?: (onClose: ()=>void)=> ReactNode,
     width?: number
   ) => {
     modalDialog.show(title, <Message message={message} />, footer, width);
