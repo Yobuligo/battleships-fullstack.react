@@ -3,3 +3,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.startMenu button {
+  margin-top: 0.5rem;
+}
