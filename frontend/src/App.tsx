@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import { ModalDialog } from "./components/modalDialog/ModalDialog";
 import {
@@ -7,37 +6,32 @@ import {
   AppNumberElementsY,
 } from "./context/AppContext";
 import { useGrid } from "./hooks/useGrid";
+import { useValue } from "./hooks/useValue";
 import { HomePage } from "./pages/HomePage";
 import { ISession } from "./shared/model/ISession";
 import { IModalDialogConfig } from "./types/IModalDialogConfig";
 
 function App() {
-  const [selectedColor, setSelectedColor] = useState("#FF0000");
-  const [modalDialogConfig, setModalDialogConfig] =
-    useState<IModalDialogConfig>({ show: false });
-  const [session, setSession] = useState<ISession | undefined>(undefined);
+  const modalDialogConfig = useValue<IModalDialogConfig>({ show: false });
 
   return (
     <AppContext.Provider
       value={{
-        selectedColor,
-        setSelectedColor,
+        selectedColor: useValue<string>("#FF0000"),
         grid: useGrid(AppNumberElementsX, AppNumberElementsY),
         modalDialogConfig,
-        setModalDialogConfig,
-        session,
-        setSession,
+        session: useValue<ISession | undefined>(undefined),
       }}
     >
-      {modalDialogConfig.show && (
+      {modalDialogConfig.value.show && (
         <ModalDialog
           onClose={() => {
-            setModalDialogConfig({ show: false });
+            modalDialogConfig.setValue({ show: false });
           }}
-          title={modalDialogConfig.title}
-          width={modalDialogConfig.width}
+          title={modalDialogConfig.value.title}
+          width={modalDialogConfig.value.width}
         >
-          {modalDialogConfig.component}
+          {modalDialogConfig.value.component}
         </ModalDialog>
       )}
       <HomePage />

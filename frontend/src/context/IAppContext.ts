@@ -1,13 +1,11 @@
 import { ISession } from "../shared/model/ISession";
 import { IGrid } from "../types/IGrid";
 import { IModalDialogConfig } from "../types/IModalDialogConfig";
+import { IValue } from "../types/IValue";
 
 export interface IAppContext {
-  selectedColor: string;
-  setSelectedColor: (color: string) => void;
+  selectedColor: IValue<string>;
   grid: IGrid;
-  modalDialogConfig: IModalDialogConfig;
-  setModalDialogConfig: (modalDialogConfig: IModalDialogConfig) => void;
-  session: ISession | undefined;
-  setSession: (session: ISession | undefined) => void;
+  modalDialogConfig: IValue<IModalDialogConfig>;
+  session: IValue<ISession | undefined>;
 }

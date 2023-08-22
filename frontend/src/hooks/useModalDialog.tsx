@@ -5,7 +5,7 @@ export const useModalDialog = () => {
   const context = useContext(AppContext);
 
   const show = (title: string, component: ReactNode, width?: number) => {
-    context.setModalDialogConfig({ component, show: true, title, width });
+    context.modalDialogConfig.setValue({ component, show: true, title, width });
   };
 
   return { show };

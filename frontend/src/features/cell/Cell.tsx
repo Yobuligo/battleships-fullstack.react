@@ -13,11 +13,11 @@ export const Cell: React.FC<ICellProps> = (props) => {
     <Tile
       color={cell?.color}
       onClick={() => {
-        context.grid.updateAt(props.coordinate, context.selectedColor);
+        context.grid.updateAt(props.coordinate, context.selectedColor.value);
         request(async () => {
           try {
             await ElementRepository.add({
-              color: context.selectedColor,
+              color: context.selectedColor.value,
               posX: props.coordinate.posX,
               posY: props.coordinate.posY,
             });
