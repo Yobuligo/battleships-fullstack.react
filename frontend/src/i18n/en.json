@@ -6,12 +6,9 @@
     "serverNoResponse": "Server is not responding",
     "ownShips": "My Ships",
     "enemyShips": "Enemy Ships",
-    "startMenu": {
-        "login": "Login",
-        "logout": "Logout",
-        "createGame": "Create Game",
-        "joinGame": "Join Game",
-        "setup": "Setup"
+    "login": {
+        "username": "Username",
+        "password": "Password"
     },
     "ship": {
         "aircraftCarrier": "Aircraft Carrier",
@@ -19,5 +16,12 @@
         "cruiser": "Cruiser",
         "destroyer": "Destroyer",
         "submarine": "Submarine"
+    },
+    "startMenu": {
+        "login": "Login",
+        "logout": "Logout",
+        "createGame": "Create Game",
+        "joinGame": "Join Game",
+        "setup": "Setup"
     }
 }

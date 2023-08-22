@@ -6,12 +6,9 @@
     "serverNoResponse": "Server antwortet nicht",
     "ownShips": "Eigene Schiffe",
     "enemyShips": "Feindliche Schiffe",
-    "startMenu": {
-        "login": "Anmelden",
-        "logout": "Abmelden",
-        "createGame": "Spiel erstellen",
-        "joinGame": "Spiel beitreten",
-        "setup": "Einstellungen"
+    "login": {
+        "username": "Username",
+        "password": "Password"
     },
     "ship": {
         "aircraftCarrier": "Flugzeugträger",
@@ -19,5 +16,12 @@
         "cruiser": "Kreuzer",
         "destroyer": "Zerstörer",
         "submarine": "U-Boot"
+    },
+    "startMenu": {
+        "login": "Anmelden",
+        "logout": "Abmelden",
+        "createGame": "Spiel erstellen",
+        "joinGame": "Spiel beitreten",
+        "setup": "Einstellungen"
     }
 }

@@ -9,5 +9,5 @@ export const useSession = () => {
     return isNotNull(context.session.value);
   };
 
-  return { isLoggedIn };
+  return { isLoggedIn, ...context.session.value };
 };

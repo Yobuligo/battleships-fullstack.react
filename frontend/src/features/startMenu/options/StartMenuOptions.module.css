@@ -1,9 +1,9 @@
-.startMenu {
+.startMenuOptions {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.startMenu button {
+.startMenuOptions button {
   margin-top: 0.5rem;
 }
