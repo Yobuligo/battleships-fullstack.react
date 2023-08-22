@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { LoginApi } from "../../../api/LoginApi";
+import { UnknownUserError } from "../../../api/UnknownUserError";
 import { Button } from "../../../components/button/Button";
 import { Dialog } from "../../../components/dialog/Dialog";
 import { LabeledInput } from "../../../components/labeledInput/LabeledInput";
@@ -12,12 +14,23 @@ export const Login: React.FC = () => {
   const { t } = useTranslation();
   const messageDialog = useMessageDialog();
 
-  const onLogin = () => {
-    messageDialog.show(
-      t.login.incorrectCredentialsTitle,
-      t.login.incorrectCredentialsDetails,
-      <Button>{t.login.createAccount}</Button>
-    );
+  const onLogin = async () => {
+    try {
+      await LoginApi.login({ username, password });
+    } catch (error) {
+      if (error instanceof UnknownUserError) {
+        messageDialog.show(
+          t.login.incorrectCredentialsTitle,
+          t.login.incorrectCredentialsDetails,
+          <Button>{t.login.createAccount}</Button>
+        );
+      } else {
+        messageDialog.show(
+          t.login.unknownErrorTitle,
+          t.login.unknownErrorDetails
+        );
+      }
+    }
   };
 
   const loginDisabled = username === "" || password === "";

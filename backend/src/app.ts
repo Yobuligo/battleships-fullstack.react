@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import express from "express";
+import { LoginController } from "./controllers/LoginController";
 import { PingController } from "./controllers/PingController";
 import { RepositoryController } from "./controllers/RepositoryController";
 import { UserController } from "./controllers/UserController";
@@ -18,6 +19,7 @@ server.use((_, res, next) => {
   next();
 });
 server.use(UserController.router);
+server.use(LoginController.router);
 server.use(PingController.router);
 server.use(new RepositoryController(ElementMeta, new Repository()).router);
 server.listen(5000);

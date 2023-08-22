@@ -13,7 +13,7 @@ exports.LoginController = void 0;
 const UserRepository_1 = require("../repositories/UserRepository");
 const ILogin_1 = require("../shared/api/ILogin");
 const Controller_1 = require("./Controller");
-class LoginController extends Controller_1.Controller {
+class LoginControllerDefault extends Controller_1.Controller {
     constructor() {
         super(ILogin_1.LoginMeta);
         this.login();
@@ -23,13 +23,15 @@ class LoginController extends Controller_1.Controller {
             const credentials = req.body;
             const user = yield UserRepository_1.UserRepository.findByCredentials(credentials);
             if (user) {
+                console.log(`User credentials are valid`);
                 res.status(200).send(user);
             }
             else {
+                console.log(`User credentials are invalid`);
                 res.status(404).send();
             }
         }));
     }
 }
-exports.LoginController = LoginController;
+exports.LoginController = new LoginControllerDefault();
 //# sourceMappingURL=LoginController.js.map

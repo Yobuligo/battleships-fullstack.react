@@ -12,6 +12,8 @@
         "password": "Password",
         "incorrectCredentialsTitle": "Ungültiger Benutzer oder Passwort",
         "incorrectCredentialsDetails": "Der eingegebene Benutzername oder das Passwort waren ungültig. Versuchen Sie es erneut oder erstellen sie einen Benutzer, falls Sie keinen haben.",
+        "unknownErrorTitle": "Unbekannter Fehler beim Anmelden",
+        "unknownErrorDetails": "Es ist ein unbekannter Fehler beim Anmelden am System aufgetreten",
         "createAccount": "Benutzer erstellen"
     },
     "ship": {

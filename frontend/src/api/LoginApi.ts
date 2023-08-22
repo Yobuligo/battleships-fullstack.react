@@ -1,17 +1,23 @@
 import { ILogin, LoginMeta } from "../shared/api/ILogin";
+import { ICredentials } from "../shared/model/ICredentials";
 import { ISession } from "../shared/model/ISession";
 import { Request } from "./Request";
+import { UnknownUserError } from "./UnknownUserError";
 
 class LoginApiDefault extends Request implements ILogin {
   constructor() {
     super(LoginMeta.path);
   }
 
-  run(): Promise<ISession> {
-    return new Promise(async (resolve) => {
-      const response = await this.get(this.url);
-      const data = response.json();
-      resolve(data);
+  login(credentials: ICredentials): Promise<ISession> {
+    return this.createPromise(async (resolve, reject) => {
+      const response = await this.post(this.url, credentials);
+      if (response.ok) {
+        const data = await response.json();
+        resolve(data);
+      } else {
+        reject(new UnknownUserError(credentials));
+      }
     });
   }
 }

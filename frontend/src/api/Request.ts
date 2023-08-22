@@ -11,11 +11,14 @@ export abstract class Request {
   }
 
   protected createPromise<T>(
-    block: (resolve: (value: T | PromiseLike<T>) => void) => void
+    block: (
+      resolve: (value: T | PromiseLike<T>) => void,
+      reject: (reason?: any) => void
+    ) => void
   ): Promise<T> {
     return new Promise(async (resolve, reject) => {
       try {
-        await block(resolve);
+        await block(resolve, reject);
       } catch (error) {
         reject(error);
       }

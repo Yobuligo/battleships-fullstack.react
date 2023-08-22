@@ -12,6 +12,8 @@
         "password": "Password",
         "incorrectCredentialsTitle": "Incorrect username or password",
         "incorrectCredentialsDetails": "The entered username or password were incorrect. Retry or create a new account if haven't one yet.",
+        "unknownErrorTitle": "Unknown error while login",
+        "unknownErrorDetails": "An unknown error occurred while logging in.",
         "createAccount": "Create Account"
     },
     "ship": {
