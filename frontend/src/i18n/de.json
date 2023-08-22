@@ -7,6 +7,7 @@
     "ownShips": "Eigene Schiffe",
     "enemyShips": "Feindliche Schiffe",
     "login": {
+        "title": "Anmeldung",
         "username": "Username",
         "password": "Password"
     },
@@ -18,7 +19,6 @@
         "submarine": "U-Boot"
     },
     "startMenu": {
-        "login": "Anmelden",
         "logout": "Abmelden",
         "createGame": "Spiel erstellen",
         "joinGame": "Spiel beitreten",

@@ -10,9 +10,6 @@ export const StartMenuOptions: React.FC<IStartMenuOptionsProps> = (props) => {
 
   return (
     <div className={styles.startMenuOptions}>
-      {!session.isLoggedIn() && (
-        <Button onClick={props.onLogin}>{t.startMenu.login}</Button>
-      )}
       <Button disabled={!session.isLoggedIn()} onClick={props.onCreateGame}>
         {t.startMenu.createGame}
       </Button>

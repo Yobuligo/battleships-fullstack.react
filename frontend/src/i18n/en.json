@@ -7,6 +7,7 @@
     "ownShips": "My Ships",
     "enemyShips": "Enemy Ships",
     "login": {
+        "title": "Login",
         "username": "Username",
         "password": "Password"
     },
@@ -18,7 +19,6 @@
         "submarine": "Submarine"
     },
     "startMenu": {
-        "login": "Login",
         "logout": "Logout",
         "createGame": "Create Game",
         "joinGame": "Join Game",
