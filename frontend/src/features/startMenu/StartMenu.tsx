@@ -1,10 +1,14 @@
+import { Button } from "../../components/button/Button";
+import styles from "./StartMenu.module.css";
+
 export const StartMenu: React.FC = () => {
   return (
-    <section>
-      <div>Create Game</div>
-      <div>Join Game</div>
-      <div>Setup</div>
-      setup Number Rows, Number Columns, Number Ships
+    <section className={styles.startMenu}>
+      <div>
+        <Button>Create Game</Button>
+      </div>
+      <Button>Join Game</Button>
+      <Button>Setup</Button>
     </section>
   );
 };
