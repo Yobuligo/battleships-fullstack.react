@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { ElementRepository } from "../api/ElementRepository";
 import { Page } from "../components/page/Page";
 import { AppContext } from "../context/AppContext";
+import { Dashboard } from "../features/dashboard/Dashboard";
+import { Legend } from "../features/legend/legend/Legend";
 import { useInitialize } from "../hooks/useInitialize";
 import { usePing } from "../hooks/usePing";
 import { usePolling } from "../hooks/usePolling";
-import { BoardPage } from "./BoardPage";
 
-export const MainPage: React.FC = () => {
+export const GamePage: React.FC = () => {
   const context = useContext(AppContext);
   usePing();
   const polling = usePolling(ElementRepository, () => reload());
@@ -30,7 +31,9 @@ export const MainPage: React.FC = () => {
 
   return (
     <Page>
-      <BoardPage />
+      <Dashboard>
+        <Legend />
+      </Dashboard>
     </Page>
   );
 };

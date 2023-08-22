@@ -7,7 +7,7 @@ import {
   AppNumberElementsY,
 } from "./context/AppContext";
 import { useGrid } from "./hooks/useGrid";
-import { MainPage } from "./pages/MainPage";
+import { GamePage } from "./pages/GamePage";
 import { IModalDialogConfig } from "./types/IModalDialogConfig";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
           {modalDialogConfig.component}
         </ModalDialog>
       )}
-      <MainPage />
+      <GamePage />
     </AppContext.Provider>
   );
 }

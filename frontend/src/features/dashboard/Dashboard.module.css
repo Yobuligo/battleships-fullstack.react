@@ -1,10 +1,10 @@
-.boardPage {
+.dashboard {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.boardPageLegendList{
+.dashboardInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
