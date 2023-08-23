@@ -58,24 +58,31 @@ export const Login: React.FC<ILoginProps> = (props) => {
     <Dialog
       title={t.login.title}
       footer={
-        <Button disabled={loginDisabled} onClick={onLogin}>
-          {t.login.title}
-        </Button>
+        <div className={styles.loginFooter}>
+          <div>Sign Up</div>
+          <div>
+            <Button disabled={loginDisabled} onClick={onLogin}>
+              {t.login.title}
+            </Button>
+          </div>
+        </div>
       }
     >
-      <div>
-        <LabeledInput
-          label={t.login.username}
-          onChange={(username) => setUsername(username)}
-        />
-      </div>
-      <div className={styles.loginPassword}>
-        <LabeledInput
-          label={t.login.password}
-          type="password"
-          onChange={(password) => setPassword(password)}
-        />
-      </div>
+      <form onSubmit={(event) => event.preventDefault()}>
+        <div>
+          <LabeledInput
+            label={t.login.username}
+            onChange={(username) => setUsername(username)}
+          />
+        </div>
+        <div className={styles.loginPassword}>
+          <LabeledInput
+            label={t.login.password}
+            type="password"
+            onChange={(password) => setPassword(password)}
+          />
+        </div>
+      </form>
     </Dialog>
   );
 };

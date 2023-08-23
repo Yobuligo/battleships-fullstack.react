@@ -1,9 +1,13 @@
+:root {
+  --color: rgba(128, 128, 128, 0.493);
+}
+
 .button {
   background-color: white;
   border-radius: 8px;
   font-size: medium;
-  border: 1px solid rgba(128, 128, 128, 0.493);
-  border-bottom: 2px solid rgba(128, 128, 128, 0.493);
+  border: 1px solid var(--color);
+  border-bottom: 2px solid var(--color);
   padding: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -18,5 +22,5 @@
 }
 
 .buttonDisabled {
-  color: rgba(128, 128, 128, 0.493);
+  color: var(--color);
 }

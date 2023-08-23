@@ -47,7 +47,13 @@ class AccountControllerDefault extends Controller_1.Controller {
             }
             else {
                 console.log(`User credentials are invalid`);
-                res.status(404).send();
+                const user = yield UserRepository_1.UserRepository.findByUsername(credentials.username);
+                if (user) {
+                    res.status(404).send({ error: "UnknownUsername" });
+                }
+                else {
+                    res.status(404).send({ error: "UnknownCredentials" });
+                }
             }
         }));
     }

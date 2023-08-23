@@ -11,7 +11,7 @@
         "username": "Username",
         "password": "Password",
         "incorrectCredentialsTitle": "Incorrect username or password",
-        "incorrectCredentialsDetails": "The entered username or password were incorrect. Retry or create a new account if you haven't one yet.",
+        "incorrectCredentialsDetails": "The entered username or password are incorrect. Retry or create a new account if you haven't one yet.",
         "unknownErrorTitle": "Unknown error while login",
         "unknownErrorDetails": "An unknown error occurred while logging in.",
         "createAccountErrorTitle": "Error while creating account",

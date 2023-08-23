@@ -1,3 +1,10 @@
-.loginPassword{
-    margin-top: 0.5rem;
+.loginPassword {
+  margin-top: 0.5rem;
+}
+
+.loginFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
