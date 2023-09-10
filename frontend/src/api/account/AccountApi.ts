@@ -1,11 +1,11 @@
 import { AccountMeta, IAccount } from "../../shared/api/IAccount";
 import { ICredentials } from "../../shared/model/ICredentials";
 import { ISession } from "../../shared/model/ISession";
-import { Request } from "../Request";
+import { RESTApi } from "../RESTApi";
 import { UnknownUserError } from "./UnknownUserError";
 import { UsernameInvalid } from "./UsernameInvalid";
 
-class AccountApiDefault extends Request implements IAccount {
+class AccountApiDefault extends RESTApi implements IAccount {
   constructor() {
     super(AccountMeta.path);
   }

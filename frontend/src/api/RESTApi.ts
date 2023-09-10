@@ -1,4 +1,4 @@
-export abstract class Request {
+export abstract class RESTApi {
   constructor(protected readonly path: string) {}
 
   protected get url(): string {

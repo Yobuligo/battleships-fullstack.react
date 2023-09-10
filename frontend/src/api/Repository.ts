@@ -1,11 +1,11 @@
 import { IEntity } from "../shared/types/IEntity";
 import { IEntityDetails } from "../shared/types/IEntityDetails";
 import { IEnvelope } from "../shared/types/IEnvelope";
-import { Request } from "./Request";
+import { RESTApi } from "./RESTApi";
 import { IPollRepository } from "./types/IPollRepository";
 
 export class Repository<T extends IEntity>
-  extends Request
+  extends RESTApi
   implements IPollRepository<T>
 {
   private _version = new Date();

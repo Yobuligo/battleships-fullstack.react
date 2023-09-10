@@ -1,7 +1,7 @@
 import { IPing, PingMeta } from "../shared/api/IPing";
-import { Request } from "./Request";
+import { RESTApi } from "./RESTApi";
 
-class PingApiDefault extends Request implements IPing {
+class PingApiDefault extends RESTApi implements IPing {
   constructor() {
     super(PingMeta.path);
   }
