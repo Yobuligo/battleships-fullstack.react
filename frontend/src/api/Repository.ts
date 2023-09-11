@@ -49,4 +49,10 @@ export class Repository<T extends IEntity>
       resolve(data);
     });
   }
+
+  poll(id: number){
+    this.startPolling()
+  }
+
+  private startPolling(){}
 }
